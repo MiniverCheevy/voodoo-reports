@@ -2,9 +2,7 @@
 
 A series of ~~tubes~~ adapters over a reporting abstraction to programatically generate reports.  Uses [MigraDoc](http://www.pdfsharp.net) for PDF generation.
 
-# Roadmap
--Add an adapter for OpenXml to generate excel files
--Add an adapter for html
+
 
   - Tablular Reports 
 
@@ -59,7 +57,7 @@ private void addHeaderRow()
 
    ![Borders And Shading](https://raw.githubusercontent.com/MiniverCheevy/voodoo-reports/master/Samples//BordersAndShadingReport.png "Tabular Report")
 
-[Borders And Shading](https://raw.githubusercontent.com/MiniverCheevy/voodoo-reports/master/Samples//BordersAndShadingReport.pdf)
+[TabularReport](https://raw.githubusercontent.com/MiniverCheevy/voodoo-reports/master/Samples//BordersAndShadingReport.pdf)
 
 ```cs
  public void Build(List<RandomPerson> data)
@@ -107,3 +105,7 @@ private void addHeaderRow()
 
 MIT
 
+# Roadmap
+-Add an adapter for OpenXml to generate excel files
+
+-Add an adapter for html
