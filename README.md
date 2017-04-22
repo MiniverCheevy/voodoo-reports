@@ -36,9 +36,9 @@ private void addHeaderRow()
 ```
  - Row and Column Span 
 
-   ![Tabular Report](https://raw.githubusercontent.com/MiniverCheevy/voodoo-reports/master/Samples//RowAndColumnSpanReport.png "Tabular Report")
+   ![Row and Column Span](https://raw.githubusercontent.com/MiniverCheevy/voodoo-reports/master/Samples//RowAndColumnSpanReport.png "Tabular Report")
 
-[TabularReport](https://raw.githubusercontent.com/MiniverCheevy/voodoo-reports/master/Samples//RowAndColumnSpanReport.pdf)
+[Row and Column Span](https://raw.githubusercontent.com/MiniverCheevy/voodoo-reports/master/Samples//RowAndColumnSpanReport.pdf)
 
 ```cs
  private void addRow(RandomPerson person)
@@ -57,9 +57,9 @@ private void addHeaderRow()
 
 - Borders And Shading
 
-   ![Tabular Report](https://raw.githubusercontent.com/MiniverCheevy/voodoo-reports/master/Samples//BordersAndShadingReport.png "Tabular Report")
+   ![Borders And Shading](https://raw.githubusercontent.com/MiniverCheevy/voodoo-reports/master/Samples//BordersAndShadingReport.png "Tabular Report")
 
-[TabularReport](https://raw.githubusercontent.com/MiniverCheevy/voodoo-reports/master/Samples//BordersAndShadingReport.pdf)
+[Borders And Shading](https://raw.githubusercontent.com/MiniverCheevy/voodoo-reports/master/Samples//BordersAndShadingReport.pdf)
 
 ```cs
  public void Build(List<RandomPerson> data)
