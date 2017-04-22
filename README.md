@@ -8,9 +8,9 @@ A series of ~~tubes~~ adapters over a reporting abstraction to programatically g
 
   - Tablular Reports 
 
-   ![Tabular Report](https://raw.githubusercontent.com/MiniverCheevy/voodoo-reports/master/Samples//SimpleTabularReport.png "Tabular Report")
+   ![Tabular Report](https://raw.githubusercontent.com/MiniverCheevy/voodoo-reports/master/Samples/TabularReport.png "Tabular Report")
 
-[TabularReport](https://raw.githubusercontent.com/MiniverCheevy/voodoo-reports/master/Samples//SimpleTabularReport.pdf)
+[TabularReport](https://raw.githubusercontent.com/MiniverCheevy/voodoo-reports/master/Samples//TabularReport.pdf)
 ```cs
 private void addHeaderRow()  
         {
