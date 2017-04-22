@@ -7,8 +7,10 @@ A series of ~~tubes~~ adapters over a reporting abstraction to programatically g
 -Add an adapter for html
 
   - Tablular Reports 
-   ![Tabular Report](./Sampls/SimpleTabularReport.png "Tabular Report")
-[TabularReport](./Sampls/SimpleTabularReport.pdf)
+
+   ![Tabular Report](https://raw.githubusercontent.com/MiniverCheevy/voodoo-reports/master/Samples//SimpleTabularReport.png "Tabular Report")
+
+[TabularReport](https://raw.githubusercontent.com/MiniverCheevy/voodoo-reports/master/Samples//SimpleTabularReport.pdf)
 ```cs
 private void addHeaderRow()  
         {
@@ -33,8 +35,11 @@ private void addHeaderRow()
         }
 ```
  - Row and Column Span 
-   ![Tabular Report](./Sampls/RowAndColumnSpanReport.png "Tabular Report")
-[TabularReport](./Sampls/RowAndColumnSpanReport.pdf)
+
+   ![Tabular Report](https://raw.githubusercontent.com/MiniverCheevy/voodoo-reports/master/Samples//RowAndColumnSpanReport.png "Tabular Report")
+
+[TabularReport](https://raw.githubusercontent.com/MiniverCheevy/voodoo-reports/master/Samples//RowAndColumnSpanReport.pdf)
+
 ```cs
  private void addRow(RandomPerson person)
         {
@@ -51,8 +56,11 @@ private void addHeaderRow()
 ```
 
 - Borders And Shading
-   ![Tabular Report](./Sampls/BordersAndShadingReport.png "Tabular Report")
-[TabularReport](./Sampls/BordersAndShadingReport.pdf)
+
+   ![Tabular Report](https://raw.githubusercontent.com/MiniverCheevy/voodoo-reports/master/Samples//BordersAndShadingReport.png "Tabular Report")
+
+[TabularReport](https://raw.githubusercontent.com/MiniverCheevy/voodoo-reports/master/Samples//BordersAndShadingReport.pdf)
+
 ```cs
  public void Build(List<RandomPerson> data)
         {
