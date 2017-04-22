@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D6A6DB61-FAF9-42F7-AB2F-468FB6D850DD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Voodoo.Reports</RootNamespace>
+    <AssemblyName>Voodoo.Reports</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.2.16.3.0\lib\net45\CsvHelper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MigraDoc.DocumentObjectModel, Version=1.50.4000.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp-MigraDoc.1.50.4000-beta3b\lib\net20\MigraDoc.DocumentObjectModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MigraDoc.Rendering, Version=1.50.4000.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp-MigraDoc.1.50.4000-beta3b\lib\net20\MigraDoc.Rendering.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MigraDoc.RtfRendering, Version=1.50.4000.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp-MigraDoc.1.50.4000-beta3b\lib\net20\MigraDoc.RtfRendering.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PdfSharp, Version=1.50.4000.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp-MigraDoc.1.50.4000-beta3b\lib\net20\PdfSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.4000.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp-MigraDoc.1.50.4000-beta3b\lib\net20\PdfSharp.Charting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Voodoo, Version=2.2.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Voodoo.Patterns.2.2.16\lib\net452\Voodoo.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Adapters\IReportAdapter.cs" />
+    <Compile Include="Adapters\MigraDocs\MigraDocPdf.cs" />
+    <Compile Include="Adapters\MigraDocs\CellAdapter.cs" />
+    <Compile Include="Adapters\MigraDocs\ReportAdapter.cs" />
+    <Compile Include="Adapters\MigraDocs\RowAdapter.cs" />
+    <Compile Include="Adapters\MigraDocs\Styles\AlignHandler.cs" />
+    <Compile Include="Adapters\MigraDocs\Styles\BackColorHandler.cs" />
+    <Compile Include="Adapters\MigraDocs\Styles\BoldHandler.cs" />
+    <Compile Include="Adapters\MigraDocs\Styles\BorderHandler.cs" />
+    <Compile Include="Adapters\MigraDocs\Styles\FontFamilyHandler.cs" />
+    <Compile Include="Adapters\MigraDocs\Styles\FontSizeHandler.cs" />
+    <Compile Include="Adapters\MigraDocs\Styles\ForeColorHandler.cs" />
+    <Compile Include="Adapters\MigraDocs\Styles\StyleFactory.cs" />
+    <Compile Include="Adapters\MigraDocs\Styles\StyleHandler.cs" />
+    <Compile Include="Adapters\MigraDocs\Styles\UnderlineHandler.cs" />
+    <Compile Include="Adapters\MigraDocs\TableAdapter.cs" />
+    <Compile Include="Models\Orientation.cs" />
+    <Compile Include="RenderingLogic\BorderBuilders\BottomBorderBuilder.cs" />
+    <Compile Include="RenderingLogic\BorderBuilders\LeftBorderBuilder.cs" />
+    <Compile Include="RenderingLogic\BorderBuilders\RightBorderBuilder.cs" />
+    <Compile Include="RenderingLogic\BorderBuilders\TopBorderBuilder.cs" />
+    <Compile Include="RenderingLogic\BorderFactory.cs" />
+    <Compile Include="Models\Cell.cs" />
+    <Compile Include="Models\CellPosition.cs" />
+    <Compile Include="RenderingLogic\BorderBuilders\InlineOutlineBorder.cs" />
+    <Compile Include="Models\Part.cs" />
+    <Compile Include="Models\PartExtensions.cs" />
+    <Compile Include="Models\Report.cs" />
+    <Compile Include="Models\Row.cs" />
+    <Compile Include="RenderingLogic\CellPositionMapper.cs" />
+    <Compile Include="RenderingLogic\CellPositionCalculator.cs" />
+    <Compile Include="Models\Section.cs" />
+    <Compile Include="Models\Style.cs" />
+    <Compile Include="Models\Table.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="RenderingLogic\CellPositionMap.cs" />
+    <Compile Include="ReportFormat.cs" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
