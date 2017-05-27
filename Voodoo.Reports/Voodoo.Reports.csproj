@@ -90,10 +90,12 @@
     <Compile Include="Adapters\MigraDocs\Styles\FontFamilyHandler.cs" />
     <Compile Include="Adapters\MigraDocs\Styles\FontSizeHandler.cs" />
     <Compile Include="Adapters\MigraDocs\Styles\ForeColorHandler.cs" />
+    <Compile Include="Adapters\MigraDocs\Styles\ItalicsHandler.cs" />
     <Compile Include="Adapters\MigraDocs\Styles\StyleFactory.cs" />
     <Compile Include="Adapters\MigraDocs\Styles\StyleHandler.cs" />
     <Compile Include="Adapters\MigraDocs\Styles\UnderlineHandler.cs" />
     <Compile Include="Adapters\MigraDocs\TableAdapter.cs" />
+    <Compile Include="Models\Fragment.cs" />
     <Compile Include="Models\Orientation.cs" />
     <Compile Include="RenderingLogic\BorderBuilders\BottomBorderBuilder.cs" />
     <Compile Include="RenderingLogic\BorderBuilders\LeftBorderBuilder.cs" />
@@ -104,7 +106,7 @@
     <Compile Include="Models\CellPosition.cs" />
     <Compile Include="RenderingLogic\BorderBuilders\InlineOutlineBorder.cs" />
     <Compile Include="Models\Part.cs" />
-    <Compile Include="Models\PartExtensions.cs" />
+    <Compile Include="PartExtensions.cs" />
     <Compile Include="Models\Report.cs" />
     <Compile Include="Models\Row.cs" />
     <Compile Include="RenderingLogic\CellPositionMapper.cs" />

@@ -63,7 +63,7 @@
     <Compile Include="BaseTest.cs" />
     <Compile Include="BordersAndShadingReport.cs" />
     <Compile Include="Models\CascadingStyleTests.cs" />
-    <Compile Include="images\Images.cs" />
+    <Compile Include="Images\Images.cs" />
     <Compile Include="RenderingLogic\BorderFactoryTests.cs" />
     <Compile Include="RenderingLogic\CellPositionCalculatorTests.cs" />
     <Compile Include="Rendering\BorderAndShadingTests.cs" />
@@ -86,22 +86,22 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="images\Hat.png" />
-    <EmbeddedResource Include="images\logo.png" />
-    <EmbeddedResource Include="images\penguin.jpg" />
+    <EmbeddedResource Include="Images\Hat.png" />
+    <EmbeddedResource Include="Images\logo.png" />
+    <EmbeddedResource Include="Images\penguin.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\corporate.txt" />
     <Content Include="Data\star-trek.txt" />
-    <Content Include="images\360px-Polemonium_reptans_2009.jpg" />
-    <Content Include="images\An_Teallach_panorama.jpg" />
-    <Content Include="images\Big_Mac_hamburger.jpg" />
-    <Content Include="images\Charolais_cattle,_Sierra_Nevada,_Venezuela.jpg" />
-    <Content Include="images\Macaca_nigra_self-portrait_%28rotated_and_cropped%29.jpg" />
-    <Content Include="images\NASA_Unveils_Celestial_Fireworks_as_Official_Hubble_25th_Anniversary_Image.jpg" />
-    <Content Include="images\Pahoeoe_fountain_edit2.jpg" />
-    <Content Include="images\Roasted_coffee_beans.jpg" />
-    <Content Include="images\The_Earth_seen_from_Apollo_17.jpg" />
+    <Content Include="Images\360px-Polemonium_reptans_2009.jpg" />
+    <Content Include="Images\An_Teallach_panorama.jpg" />
+    <Content Include="Images\Big_Mac_hamburger.jpg" />
+    <Content Include="Images\Charolais_cattle,_Sierra_Nevada,_Venezuela.jpg" />
+    <Content Include="Images\Macaca_nigra_self-portrait_%28rotated_and_cropped%29.jpg" />
+    <Content Include="Images\NASA_Unveils_Celestial_Fireworks_as_Official_Hubble_25th_Anniversary_Image.jpg" />
+    <Content Include="Images\Pahoeoe_fountain_edit2.jpg" />
+    <Content Include="Images\Roasted_coffee_beans.jpg" />
+    <Content Include="Images\The_Earth_seen_from_Apollo_17.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

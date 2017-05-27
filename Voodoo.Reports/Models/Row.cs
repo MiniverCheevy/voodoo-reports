@@ -12,9 +12,14 @@ namespace Voodoo.Reports.Models
             return cells.ToArray();
         }
         public double Height { get; set; }
-        
-        private List<Cell> cells = new List<Cell>();
+        public bool IsHeader { get; private set; }
 
+        private List<Cell> cells = new List<Cell>();
+        public Row Header()
+        {
+            IsHeader = true;
+            return this;
+        }
         public Cell AddCell()
         {
             var cell = new Cell() { Parent = this };

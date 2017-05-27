@@ -16,7 +16,44 @@ namespace Voodoo.Reports.Tests
 
         public TabularReport() 
         {
-            this.Border(BorderPosition.Top, BorderPosition.Bottom);
+            this.Body.Border(BorderPosition.Top, BorderPosition.Bottom);
+            addHeader();
+            addFooter();
+            ShowRuler = true;
+        }
+        
+        private void addFooter()
+        {
+            var footer = base.Footer.AddTable().Italics().ForeColor(System.Drawing.Color.Blue); ;
+            footer.NoBorder();
+            footer.AddColumn(1.5);
+            footer.AddColumn(4.5);
+            footer.AddColumn(1.5);
+
+            
+            var row = footer.AddRow();
+            row.AddCell().AddFragment(DateTime.Now.ToLongDateString()).Right();
+            row.AddCell();
+            row.AddCell().AddPageOfPagesString();
+
+
+        }
+
+        private void addHeader()
+        {
+            var header = base.Header.AddTable().Italics().ForeColor(System.Drawing.Color.Blue);            
+            header.NoBorder();
+            header.AddColumn(1.5);
+            header.AddColumn(4);
+            header.AddColumn(1.5);
+
+            var image = new Images.Images().Hat;
+            var row = header.AddRow();
+            var left = row.AddCell().AddImage(image);
+            var middle = row.AddCell().Bold().Big().Big().Big()
+                            .Center().AddFragment("Title");
+            var right = row.AddCell();
+
         }
 
         public void Build(List<RandomPerson> data)
@@ -32,7 +69,7 @@ namespace Voodoo.Reports.Tests
 
         private void addHeaderRow()  
         {
-            var header = this.table.AddRow().Bold().Big();
+            var header = this.table.AddRow().Bold().Big().Header();
             header.NoBorder(BorderPosition.Top);
 
             header.AddCell("Name");

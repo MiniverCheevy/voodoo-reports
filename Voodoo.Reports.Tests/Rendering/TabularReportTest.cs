@@ -9,10 +9,10 @@ namespace Voodoo.Reports.Tests.Rendering
         [TestMethod]
         public void RenderReport_ValidData_IsOk()
         {
-            //TODO: header, footer, images, page number
-
             var data = base.GetData();
             var report = new TabularReport();
+            report.Build(data);
+            report.Body.AddVerticleSpacer(.5);
             report.Build(data);
             base.WriteFile(report); 
         }

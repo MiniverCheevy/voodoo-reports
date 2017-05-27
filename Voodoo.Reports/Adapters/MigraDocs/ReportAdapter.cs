@@ -68,10 +68,10 @@ namespace Voodoo.Reports.Adapters.MigraDocs
         private void applyDefaultStyles()
         {
             
-            DefaultSection.PageSetup.RightMargin = ".5in";
-            DefaultSection.PageSetup.LeftMargin = ".5in";
-            DefaultSection.PageSetup.TopMargin = "1.25in";
-            DefaultSection.PageSetup.BottomMargin = ".5in";
+            DefaultSection.PageSetup.RightMargin = $"{Report.RightMarginInInches}in";
+            DefaultSection.PageSetup.LeftMargin = $"{Report.LeftMarginInInches}in";
+            DefaultSection.PageSetup.TopMargin = $"{Report.TopMarginInInches}in";
+            DefaultSection.PageSetup.BottomMargin = $"{Report.BottomMarginInInches}in";
 
             // Get the predefined style Normal.
             var style = Document.Styles["Normal"];
@@ -81,22 +81,22 @@ namespace Voodoo.Reports.Adapters.MigraDocs
             style.Font.Name = Report.DefaultFontFamily;
             style.Font.Size = Unit.FromPoint(Report.DefaultFontSize);
 
-            style = Document.Styles[StyleNames.Header];
-            style.ParagraphFormat.AddTabStop("16cm", TabAlignment.Right);
+            //style = Document.Styles[StyleNames.Header];
+            //style.ParagraphFormat.AddTabStop("16cm", TabAlignment.Right);
 
-            style = Document.Styles[StyleNames.Footer];
-            style.ParagraphFormat.AddTabStop("8cm", TabAlignment.Center);
+            //style = Document.Styles[StyleNames.Footer];
+            //style.ParagraphFormat.AddTabStop("8cm", TabAlignment.Center);
 
             // Create a new style called Table based on style Normal
-            style = Document.Styles.AddStyle("Table", "Normal");
-            style.Font.Name = Report.DefaultFontFamily;
-            style.Font.Size = Report.DefaultFontSize;
+            //style = Document.Styles.AddStyle("Table", "Normal");
+            //style.Font.Name = Report.DefaultFontFamily;
+            //style.Font.Size = Report.DefaultFontSize;
 
-            // Create a new style called Reference based on style Normal
-            style = Document.Styles.AddStyle("Reference", "Normal");
-            style.ParagraphFormat.SpaceBefore = "5mm";
-            style.ParagraphFormat.SpaceAfter = "5mm";
-            style.ParagraphFormat.TabStops.AddTabStop("16cm", TabAlignment.Right);
+            //// Create a new style called Reference based on style Normal
+            //style = Document.Styles.AddStyle("Reference", "Normal");
+            //style.ParagraphFormat.SpaceBefore = "5mm";
+            //style.ParagraphFormat.SpaceAfter = "5mm";
+            //style.ParagraphFormat.TabStops.AddTabStop("16cm", TabAlignment.Right);
        
     }
 
@@ -104,6 +104,8 @@ namespace Voodoo.Reports.Adapters.MigraDocs
 
         private void buildHeader()
         {
+            if (Report.ShowRuler)
+                Report.AddRuler(Report.Header);
             foreach (var table in Report.Header.Children())
             {
                 var migraDocTable = this.Header.AddTable();
@@ -114,7 +116,7 @@ namespace Voodoo.Reports.Adapters.MigraDocs
         private void buildBody()
         {
             foreach (var table in Report.Body.Children())
-            {
+            {               
                 var migraDocTable = this.DefaultSection.AddTable();
                 var adapter = new TableAdapter(table, migraDocTable, Report);
             }
@@ -122,6 +124,8 @@ namespace Voodoo.Reports.Adapters.MigraDocs
 
         private void buildFooter()
         {
+            if (Report.ShowRuler)
+                Report.AddRuler(Report.Footer);
             foreach (var table in Report.Footer.Children())
             {
                 var migraDocTable = this.Footer.AddTable();

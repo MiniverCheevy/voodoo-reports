@@ -6,12 +6,14 @@ namespace Voodoo.Reports.Models
 {
     public class Cell : Part, ITabularObject
     {
-        
+
         public Fragment[] Children()
         {
             return fragments.ToArray();
         }
         private List<Fragment> fragments = new List<Fragment>();
+        internal byte[] imageBytes;
+
         public int Rows { get; set; } = 1;
         public int Columns { get; set; } = 1;
 
@@ -51,24 +53,33 @@ namespace Voodoo.Reports.Models
             return string.Join(" ", fragments);
         }
         public Row Row => Parent as Row;
-    }
-    public class Fragment : Part
-    {
 
-        public Cell Cell => Parent as Cell;
-        public bool IsPageNumber { get; set; }
-        public bool IsNumberOfPages { get; set; }
-        public string Text { get; set; }
-
-        public override string ToString()
+        public Cell AddPageNumber()
         {
-            return Text;
+            this.AddFragment(new Fragment { IsPageNumber = true });
+            return this;
         }
-       
+        public Cell AddNumberOfPages()
+        {
+            this.AddFragment(new Fragment { IsNumberOfPages = true });
+            return this;
+        }
+        public Cell AddPageOfPagesString()
+        {
+            this.AddFragment("Page ");
+            this.AddFragment(new Fragment { IsPageNumber = true });
+            this.AddFragment(" Of ");
+            this.AddFragment(new Fragment { IsNumberOfPages = true });
+            return this;
+        }
+        public Cell AddImage(byte[] bytes)
+        {
+            this.imageBytes = bytes;
+            return this;
+            
+        }        
+
     }
-    
-    public class ImageCell
-    {
-        Image Image { get; set; }
-    }
+
+   
 }

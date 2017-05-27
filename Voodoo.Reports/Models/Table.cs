@@ -15,7 +15,7 @@ namespace Voodoo.Reports.Models
         public CellPositionCalculator CellPositionCalculator { get; set; }        
         internal List<OuterBorder> OuterBorders { get;  set; } = new List<OuterBorder>();
         internal List<InnerBorder> InternalBorders { get;  set; } = new List<InnerBorder>();
-
+  
         public Row[] Children()
         {
             return rows.ToArray();
@@ -44,6 +44,7 @@ namespace Voodoo.Reports.Models
             rows.Add(row);
             return row;
         }
+       
         public CellPosition GetPosition(Cell cell)
         {            
             return this.CellPositionCalculator.PositionDictionary[cell];

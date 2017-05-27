@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using MigraDoc.DocumentObjectModel;
@@ -35,7 +36,7 @@ namespace Voodoo.Reports.Adapters.MigraDocs
 
         private void handleChidren()
         {
-            //TODO: images
+
             var styles = cell.GetCalculatedStyles();
             foreach (var style in styles)
             {
@@ -46,7 +47,14 @@ namespace Voodoo.Reports.Adapters.MigraDocs
                 migraDocCell.Borders.ClearAll();
                 migraDocCell.Borders.Width = 0;
             }
+
+            if (cell.imageBytes != null)
+            {
+                addImage();                
+            }
+
             paragraph = migraDocCell.AddParagraph();
+            
             foreach (var fragment in cell.Children())
             {
                 addFragment(fragment);
@@ -54,8 +62,15 @@ namespace Voodoo.Reports.Adapters.MigraDocs
 
         }
 
+        private void addImage()
+        {
+            var imageString ="base64:" + Convert.ToBase64String(cell.imageBytes);
+            migraDocCell.AddImage(imageString);
+        }
+
         private void addFragment(Fragment fragment)
         {
+
             if (fragment.IsNumberOfPages)
                 paragraph.AddNumPagesField();
             else if (fragment.IsPageNumber)

@@ -37,7 +37,7 @@ namespace Voodoo.Reports.Tests
         public List<RandomPerson> GetData()
         {
             var data = new List<RandomPerson>();
-            for (var i = 0; i < 10; i++)
+            for (var i = 0; i < 100; i++)
             {
                 data.Add(TestHelper.Data.Person());
             }

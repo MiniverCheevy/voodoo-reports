@@ -19,7 +19,17 @@ namespace Voodoo.Reports.Models
 		{
 			var table = new Table() { Parent = this };
 			tables.Add(table);
+
 			return table;
-		}        
+		}      
+        public void AddVerticleSpacer(double heightInInces)
+        {
+            var table = new Table { Parent = this };
+            tables.Add(table);
+            table.AddColumn(7.5);
+            var row = table.AddRow(heightInInces);
+            row.AddCell(string.Empty);
+
+        }
 	}
 }

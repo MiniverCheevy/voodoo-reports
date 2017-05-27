@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Voodoo.Reports.Tests.images
+namespace Voodoo.Reports.Tests.Images
 {
     public class Images
     {
@@ -26,27 +27,38 @@ namespace Voodoo.Reports.Tests.images
 
         }
 
-        public Image Penguin { get; set; }
+        public byte[] Penguin { get; set; }
 
-        public Image Logo { get; set; }
+        public byte[] Logo { get; set; }
 
-        public Image Hat { get; set; }
-        public Image Flowers { get; private set; }
-        public Image Panorama { get; private set; }
-        public Image Burger { get; private set; }
-        public Image Cow { get; private set; }
-        public Image Macaca { get; private set; }
-        public Image Space { get; private set; }
-        public Image Fountain { get; private set; }
-        public Image Coffee { get; private set; }
-        public Image Earth { get; private set; }
+        public byte[] Hat { get; set; }
+        public byte[] Flowers { get; private set; }
+        public byte[] Panorama { get; private set; }
+        public byte[] Burger { get; private set; }
+        public byte[] Cow { get; private set; }
+        public byte[] Macaca { get; private set; }
+        public byte[] Space { get; private set; }
+        public byte[] Fountain { get; private set; }
+        public byte[] Coffee { get; private set; }
+        public byte[] Earth { get; private set; }
 
        
-        private Image getImage(string imageName)
+        private byte[] getImage(string imageName)
         {
+            imageName = $"Voodoo.Reports.Tests.Images.{imageName}";
             var assembly = typeof(Images).Assembly;
-            System.IO.Stream file = assembly.GetManifestResourceStream($"Voodoo.Reports.Test.images.{imageName}");
-            return  Image.FromStream(file);
+            using (var resFilestream = assembly.GetManifestResourceStream(imageName))
+            {
+                if (resFilestream == null) return null;
+                byte[] bytes = new byte[resFilestream.Length];
+                resFilestream.Read(bytes, 0, bytes.Length);
+                return bytes;
+            }
+
+            
+            //System.IO.Stream file = assembly.GetManifestResourceStream($"Voodoo.Reports.Test.images.{imageName}");
+            //return  file;
         }
+      
     }
 }

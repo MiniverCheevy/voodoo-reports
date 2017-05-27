@@ -22,6 +22,9 @@ namespace Voodoo.Reports.Adapters.MigraDocs.Styles
             var bold = style as Bold;
             if (bold != null)
                 return new BoldHandler(bold, report);
+            var italics = style as Italics;
+            if (italics != null)
+                return new ItalicsHandler(italics, report);
             var underline = style as Underline;
             if (underline != null)
                 return new UnderlineHandler(underline, report);
@@ -44,7 +47,8 @@ namespace Voodoo.Reports.Adapters.MigraDocs.Styles
             if (border != null)
                 return new BorderHandler(border, report);
 
-            return null;
+            throw new System.Exception($"No style handler found for {style.GetType().Name}");
+
         }
 
 

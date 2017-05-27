@@ -29,6 +29,8 @@ namespace Voodoo.Reports.Adapters.MigraDocs
             this.report = report;
             applyStyles();
             handleChidren();
+            if (row.IsHeader)
+                migraDocRow.HeadingFormat = true;
         }
 
         private void handleChidren()
@@ -46,7 +48,6 @@ namespace Voodoo.Reports.Adapters.MigraDocs
             if (row.ExcludedStyles.Any(c => c.GetType() == typeof(Border)))
             {
                 migraDocRow.Borders.ClearAll();
-                //migraDocRow.Borders.Width = 0;
             }
             var borders = row.GetCalculatedStyles().Where(c => c is Border).ToArray();
             foreach (var border in borders)
