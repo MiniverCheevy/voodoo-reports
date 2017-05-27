@@ -14,7 +14,7 @@ using Orientation = Voodoo.Reports.Models.Orientation;
 
 namespace Voodoo.Reports.Adapters.MigraDocs
 {
-    public class ReportAdapter
+    public class ReportAdapter: IReportAdapter
     {
         public ReportAdapter()
         {

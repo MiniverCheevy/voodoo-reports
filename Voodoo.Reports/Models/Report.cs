@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Voodoo.Reports.Adapters;
 using Pdf = Voodoo.Reports.Adapters.MigraDocs;
 
 namespace Voodoo.Reports.Models
@@ -49,7 +50,10 @@ namespace Voodoo.Reports.Models
 	            measure += .5;
 	        }
 	    }
-
+        public Byte[] Render(IReportAdapter adapter)
+        {
+            return adapter.Render(this);
+        }
 	    public Byte[] Render(ReportFormat format)
         {
             switch (format)
