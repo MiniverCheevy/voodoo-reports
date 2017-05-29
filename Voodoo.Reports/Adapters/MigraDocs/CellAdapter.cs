@@ -13,7 +13,6 @@ namespace Voodoo.Reports.Adapters.MigraDocs
 {
     internal class CellAdapter
     {
-
         private Models.Cell cell;
         private MigraDoc.DocumentObjectModel.Tables.Cell migraDocCell;
         private Report report;
@@ -36,41 +35,46 @@ namespace Voodoo.Reports.Adapters.MigraDocs
 
         private void handleChidren()
         {
-
+            clearBorders();
             var styles = cell.GetCalculatedStyles();
             foreach (var style in styles)
             {
                 StyleFactory.GetHandler(style, cell.Report).ApplyStyle(migraDocCell);
             }
-            if (cell.ExcludedStyles.Any(c => c.GetType() == typeof(Border)))
-            {
-                migraDocCell.Borders.ClearAll();
-                migraDocCell.Borders.Width = 0;
-            }
 
             if (cell.imageBytes != null)
             {
-                addImage();                
+                addImage();
             }
 
             paragraph = migraDocCell.AddParagraph();
-            
+
             foreach (var fragment in cell.Children())
             {
                 addFragment(fragment);
             }
+        }
 
+        private void clearBorders()
+        {
+            migraDocCell.Borders.ClearAll();
+            var style = new Border
+            {
+                Style = Models.BorderStyle.None,
+                Position = new BorderPosition[] { BorderPosition.All }
+            };
+
+            StyleFactory.GetHandler(style, cell.Report).ApplyStyle(migraDocCell);
         }
 
         private void addImage()
         {
-            var imageString ="base64:" + Convert.ToBase64String(cell.imageBytes);
+            var imageString = "base64:" + Convert.ToBase64String(cell.imageBytes);
             migraDocCell.AddImage(imageString);
         }
 
         private void addFragment(Fragment fragment)
         {
-
             if (fragment.IsNumberOfPages)
                 paragraph.AddNumPagesField();
             else if (fragment.IsPageNumber)
@@ -79,7 +83,7 @@ namespace Voodoo.Reports.Adapters.MigraDocs
             {
                 if (cell.HasNonBreakingSpaces)
                 {
-                    var nonBreakingSpace = ' ';//<alt>+255 in visual studio
+                    var nonBreakingSpace = ' '; //<alt>+255 in visual studio
                     fragment.Text = fragment.Text.Replace(' ', nonBreakingSpace);
                 }
                 var text = paragraph.AddFormattedText(fragment.Text.To<string>());

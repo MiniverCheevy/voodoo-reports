@@ -22,10 +22,9 @@ namespace Voodoo.Reports.RenderingLogic
             foreach (var cell in cells)
             {
                 var position = table.CellPositionCalculator.PositionDictionary[cell];
-                var map = new CellPositionMap{ Cell = cell, Position = position };
+                var map = new CellPositionMap {Cell = cell, Position = position};
                 this.CellPositionMaps.Add(map);
             }
         }
-
     }
 }

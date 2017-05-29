@@ -8,7 +8,7 @@ namespace Voodoo.Reports.Models
     {
         public bool IsHandled { get; set; }
     }
-    
+
     public enum Alignment
     {
         Left = 1,
@@ -17,36 +17,48 @@ namespace Voodoo.Reports.Models
         Justified = 4
     }
 
-   
+
     public class Align : Style
     {
         public Alignment Alignment { get; set; }
     }
+
     public class Bold : Style
-    { }
+    {
+    }
+
     public class Italics : Style
-    { }
+    {
+    }
+
     public class Underline : Style
-    { }
-  
+    {
+    }
+
     public class ForeColor : Style
     {
         public Color Color { get; set; }
     }
+
     public class BackColor : Style
     {
         public Color Color { get; set; }
     }
+
     public class BigFont : Style
-    { }
+    {
+    }
+
     public class FontSize : Style
     {
         public double Size { get; set; }
     }
+
     public class FontFamily : Style
     {
         public string Name { get; set; }
     }
+
     public class Border : Style
     {
         public BorderPosition[] Position { get; set; }
@@ -59,18 +71,19 @@ namespace Voodoo.Reports.Models
             return $"{Style} {Color} {string.Join(" ", positions)}";
         }
     }
+
     public enum BorderStyle
     {
-        None =0,
-        Solid=1
+        None = 0,
+        Solid = 1
     }
+
     public enum BorderPosition
     {
-        All=0,
+        All = 0,
         Left,
         Right,
         Top,
         Bottom
-
     }
 }

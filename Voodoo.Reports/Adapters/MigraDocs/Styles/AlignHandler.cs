@@ -37,11 +37,10 @@ namespace Voodoo.Reports.Adapters.MigraDocs.Styles
                     throw new ArgumentOutOfRangeException();
             }
         }
+
         public override void ApplyStyle(FormattedText cell)
         {
             NoOp();
         }
     }
-
 }
-

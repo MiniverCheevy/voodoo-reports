@@ -17,6 +17,7 @@ namespace Voodoo.Reports.Adapters.MigraDocs.Styles
         {
             cell.Shading.Color = Color.FromRgb(style.Color.R, style.Color.G, style.Color.B);
         }
+
         public override void ApplyStyle(FormattedText text)
         {
             NoOp();

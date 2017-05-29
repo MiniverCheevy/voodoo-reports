@@ -24,14 +24,16 @@ namespace Voodoo.Reports.Models
                 return null;
             }
         }
+
         internal Part()
         {
-
         }
+
         public Part Parent { get; set; }
         internal List<Style> Styles { get; set; } = new List<Style>();
 
         internal List<Style> ExcludedStyles { get; set; } = new List<Style>();
+
         protected bool ContainsType(List<Style> collection, Style style)
         {
             var type = style.GetType();
@@ -39,13 +41,14 @@ namespace Voodoo.Reports.Models
             {
                 var border = style as Border;
                 var position = border.Position.First();
-                return collection.Any(c => c is Border && ((Border)c).Position.Contains(position));
+                return collection.Any(c => c is Border && ((Border) c).Position.Contains(position));
             }
             else
-            { 
-            return collection.Any(i => i.GetType() == type);
+            {
+                return collection.Any(i => i.GetType() == type);
             }
         }
+
         public List<Style> GetCalculatedStyles()
         {
             breakUpBorders();
@@ -87,10 +90,16 @@ namespace Voodoo.Reports.Models
                     var border = style as Border;
                     var positions = border.Position;
                     if (positions.Any(c => c == BorderPosition.All))
-                        positions = new BorderPosition[] { BorderPosition.Bottom, BorderPosition.Top, BorderPosition.Left, BorderPosition.Right };
+                        positions = new BorderPosition[]
+                            {BorderPosition.Bottom, BorderPosition.Top, BorderPosition.Left, BorderPosition.Right};
                     foreach (var postion in border.Position)
                     {
-                        styles.Add(new Border {Position = new BorderPosition[] { postion }, Color = border.Color, Style = border.Style});
+                        styles.Add(new Border
+                        {
+                            Position = new BorderPosition[] {postion},
+                            Color = border.Color,
+                            Style = border.Style
+                        });
                     }
                 }
                 else
@@ -102,14 +111,14 @@ namespace Voodoo.Reports.Models
         }
 
         internal virtual void HandlePrerendingTasks()
-        { }
+        {
+        }
+
         public object NativeObject { get; set; }
-        
-
-
     }
+
     public interface ITabularObject
     {
-         Cell[] GetAllCells();
+        Cell[] GetAllCells();
     }
 }

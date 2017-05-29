@@ -22,13 +22,12 @@ namespace Voodoo.Reports.Adapters.MigraDocs
         {
             this.table = table;
             this.table.HandlePrerendingTasks();
-            this.migraDocTable = migraDocTable;            
+            this.migraDocTable = migraDocTable;
             this.report = report;
             applyStyles();
             handleChidren();
         }
 
-       
 
         private void handleChidren()
         {
@@ -40,37 +39,17 @@ namespace Voodoo.Reports.Adapters.MigraDocs
                     migraDocTable.AddColumn();
             }
 
-            Row previousRow = null;
             foreach (var row in table.Children())
             {
                 var migraDocRow = this.migraDocTable.AddRow();
+                migraDocRow.Borders.ClearAll();
                 var adapter = new RowAdapter(row, migraDocRow, report);
-                previousRow = row;
             }
         }
 
         private void applyStyles()
         {
-            if (table.ExcludedStyles.Any(c => c.GetType() == typeof(Border)))
-            { 
-                migraDocTable.Borders.ClearAll();
-                migraDocTable.Borders.Width = 0;
-            }
-
-            var borders = table.GetCalculatedStyles().Where(c => c is Border).ToArray();
-            foreach (var border in borders)
-            {
-                var borderHandler = new BorderHandler(border as Border, report);
-                borderHandler.ApplyStyle(migraDocTable);
-            }
-            var excludedBorders = table.ExcludedStyles.Where(c => c is Border).ToArray();
-            foreach (var b in excludedBorders)
-            {
-                var border = b as Border;
-                border.Style = Models.BorderStyle.None;
-                var borderHandler = new BorderHandler(border as Border, report);
-                borderHandler.ApplyStyle(migraDocTable);
-            }
+            migraDocTable.Borders.ClearAll();
         }
     }
 }

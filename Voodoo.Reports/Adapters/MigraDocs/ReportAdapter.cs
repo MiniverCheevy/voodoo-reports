@@ -14,21 +14,19 @@ using Orientation = Voodoo.Reports.Models.Orientation;
 
 namespace Voodoo.Reports.Adapters.MigraDocs
 {
-    public class ReportAdapter: IReportAdapter
+    public class ReportAdapter : IReportAdapter
     {
         public ReportAdapter()
         {
             Document = new Document();
-         
+
             DefaultSection = Document.AddSection();
             Header = DefaultSection.Headers.Primary;
             Footer = DefaultSection.Footers.Primary;
-           
         }
+
         public byte[] Render(Report report)
         {
-            
-
             this.Report = report;
             switch (Report.Orientation)
             {
@@ -59,19 +57,17 @@ namespace Voodoo.Reports.Adapters.MigraDocs
                 var buffer = new byte[ms.Length];
                 ms.Seek(0, SeekOrigin.Begin);
                 ms.Flush();
-                ms.Read(buffer, 0, (int)ms.Length);
+                ms.Read(buffer, 0, (int) ms.Length);
                 return buffer;
             }
-
         }
 
         private void applyDefaultStyles()
         {
-            
-            DefaultSection.PageSetup.RightMargin = $"{Report.RightMarginInInches}in";
-            DefaultSection.PageSetup.LeftMargin = $"{Report.LeftMarginInInches}in";
-            DefaultSection.PageSetup.TopMargin = $"{Report.TopMarginInInches}in";
-            DefaultSection.PageSetup.BottomMargin = $"{Report.BottomMarginInInches}in";
+            DefaultSection.PageSetup.RightMargin = $"{Report.MarginInInches.Right}in";
+            DefaultSection.PageSetup.LeftMargin = $"{Report.MarginInInches.Left}in";
+            DefaultSection.PageSetup.TopMargin = $"{Report.MarginInInches.Top}in";
+            DefaultSection.PageSetup.BottomMargin = $"{Report.MarginInInches.Bottom}in";
 
             // Get the predefined style Normal.
             var style = Document.Styles["Normal"];
@@ -97,8 +93,7 @@ namespace Voodoo.Reports.Adapters.MigraDocs
             //style.ParagraphFormat.SpaceBefore = "5mm";
             //style.ParagraphFormat.SpaceAfter = "5mm";
             //style.ParagraphFormat.TabStops.AddTabStop("16cm", TabAlignment.Right);
-       
-    }
+        }
 
         public Report Report { get; set; }
 
@@ -109,6 +104,7 @@ namespace Voodoo.Reports.Adapters.MigraDocs
             foreach (var table in Report.Header.Children())
             {
                 var migraDocTable = this.Header.AddTable();
+                migraDocTable.Borders.ClearAll();
                 var adapter = new TableAdapter(table, migraDocTable, Report);
             }
         }
@@ -116,7 +112,7 @@ namespace Voodoo.Reports.Adapters.MigraDocs
         private void buildBody()
         {
             foreach (var table in Report.Body.Children())
-            {               
+            {
                 var migraDocTable = this.DefaultSection.AddTable();
                 var adapter = new TableAdapter(table, migraDocTable, Report);
             }

@@ -24,7 +24,6 @@ namespace Voodoo.Reports.Tests.Images
             this.Penguin = getImage("penguin.jpg");
             this.Coffee = getImage("Roasted_coffee_beans.jpg");
             this.Earth = getImage("The_Earth_seen_from_Apollo_17.jpg");
-
         }
 
         public byte[] Penguin { get; set; }
@@ -42,7 +41,7 @@ namespace Voodoo.Reports.Tests.Images
         public byte[] Coffee { get; private set; }
         public byte[] Earth { get; private set; }
 
-       
+
         private byte[] getImage(string imageName)
         {
             imageName = $"Voodoo.Reports.Tests.Images.{imageName}";
@@ -55,10 +54,9 @@ namespace Voodoo.Reports.Tests.Images
                 return bytes;
             }
 
-            
+
             //System.IO.Stream file = assembly.GetManifestResourceStream($"Voodoo.Reports.Test.images.{imageName}");
             //return  file;
         }
-      
     }
 }

@@ -38,6 +38,7 @@ namespace Voodoo.Reports.RenderingLogic.BorderBuilders
             var isRightMost = cell.Position.Column == rightSide;
             return isRightMost;
         }
+
         public bool ShouldApplyRightBorder()
         {
             return ((isRightSide && innerOuter == InnerOuter.Outer) || (!isRightSide && innerOuter == InnerOuter.Inner));

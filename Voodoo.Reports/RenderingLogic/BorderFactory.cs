@@ -10,8 +10,8 @@ namespace Voodoo.Reports.RenderingLogic
 {
     public class BorderFactory
     {
-
         private Table table;
+
         public void BuildBorders(Table table)
         {
             this.table = table;
@@ -38,4 +38,3 @@ namespace Voodoo.Reports.RenderingLogic
         }
     }
 }
-

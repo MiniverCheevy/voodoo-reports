@@ -10,7 +10,6 @@ namespace Voodoo.Reports.Adapters.MigraDocs.Styles
 {
     public static class StyleFactory
     {
-
         //TODO: DI this?
         public static StyleHandler GetHandler<T>(T style, Report report)
             where T : Style
@@ -48,9 +47,6 @@ namespace Voodoo.Reports.Adapters.MigraDocs.Styles
                 return new BorderHandler(border, report);
 
             throw new System.Exception($"No style handler found for {style.GetType().Name}");
-
         }
-
-
     }
 }

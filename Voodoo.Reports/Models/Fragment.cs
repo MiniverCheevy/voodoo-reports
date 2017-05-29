@@ -2,7 +2,8 @@ namespace Voodoo.Reports.Models
 {
     public class Fragment : Part
     {
-
+        internal int StartIndex { get; set; }
+        internal int Length => Text.To<string>().Length;
         public Cell Cell => Parent as Cell;
         public bool IsPageNumber { get; set; }
         public bool IsNumberOfPages { get; set; }
@@ -12,6 +13,5 @@ namespace Voodoo.Reports.Models
         {
             return Text;
         }
-       
     }
 }

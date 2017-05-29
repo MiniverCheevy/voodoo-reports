@@ -12,22 +12,23 @@ using Color = System.Drawing.Color;
 
 namespace Voodoo.Reports.Tests.RenderingLogic
 {
-
     public class BorderBuilderTest
     {
         protected Table table;
         protected List<CellPositionMap> map;
         protected OuterBorder outerBorder;
         protected InnerBorder innerBorder;
-        protected CellPositionMap getCell(int column, int row) => map.Where(c => c.Position.Column == column && c.Position.Row == row).First();
-        
+
+        protected CellPositionMap getCell(int column, int row)
+            => map.First(c => c.Position.Column == column && c.Position.Row == row);
+
         public BorderBuilderTest()
         {
             this.table = new Table();
             foreach (var r in Enumerable.Range(1, 3))
             {
                 var row = table.AddRow();
-                foreach (var C in Enumerable.Range(1, 3))
+                foreach (var c in Enumerable.Range(1, 3))
                 {
                     row.AddCell();
                 }
@@ -40,7 +41,7 @@ namespace Voodoo.Reports.Tests.RenderingLogic
             this.outerBorder = table.OuterBorders.First();
             this.innerBorder = table.InternalBorders.First();
         }
-   
+
         [TestMethod]
         public void SetTopBorder_Outer_IsOk()
         {
@@ -64,9 +65,9 @@ namespace Voodoo.Reports.Tests.RenderingLogic
 
                 factory.IsTopRow().Should().Be(false);
                 factory.ShouldApplyTopBorder().Should().Be(false);
-
             }
         }
+
         [TestMethod]
         public void SetTopBorder_Inner_IsOk()
         {
@@ -90,7 +91,6 @@ namespace Voodoo.Reports.Tests.RenderingLogic
 
                 factory.IsTopRow().Should().Be(false);
                 factory.ShouldApplyTopBorder().Should().Be(true);
-
             }
         }
 
@@ -118,7 +118,6 @@ namespace Voodoo.Reports.Tests.RenderingLogic
 
                 factory.IsLeftMost().Should().Be(false);
                 factory.ShouldApplyLeftBorder().Should().Be(false);
-
             }
         }
     }

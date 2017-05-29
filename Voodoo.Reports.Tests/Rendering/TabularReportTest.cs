@@ -5,7 +5,6 @@ namespace Voodoo.Reports.Tests.Rendering
     [TestClass]
     public class TabularReportTest : BaseTest
     {
-
         [TestMethod]
         public void RenderReport_ValidData_IsOk()
         {
@@ -14,9 +13,9 @@ namespace Voodoo.Reports.Tests.Rendering
             report.Build(data);
             report.Body.AddVerticleSpacer(.5);
             report.Build(data);
-            base.WriteFile(report); 
+            base.WriteFile(report);
         }
-         
+
         public override string Name => "SimpleTabularReport";
     }
 }

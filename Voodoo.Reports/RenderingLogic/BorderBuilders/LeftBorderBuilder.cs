@@ -22,6 +22,7 @@ namespace Voodoo.Reports.RenderingLogic.BorderBuilders
             this.border = border;
             this.innerOuter = border.InnerOuter;
         }
+
         public void SetLeftBorder()
         {
             isLeftMost = IsLeftMost();

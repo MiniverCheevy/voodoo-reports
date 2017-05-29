@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.WebSockets;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Voodoo.Reports.Adapters;
+using MigraDocReportAdapter = Voodoo.Reports.Adapters.MigraDocs.ReportAdapter;
+using ClosedXmlReportAdapter = Voodoo.Reports.Adapters.ClosedXml.ReportAdapter;
 using Voodoo.Reports.Models;
 using Voodoo.TestData;
 using Voodoo.TestData.Models;
@@ -14,12 +17,16 @@ namespace Voodoo.Reports.Tests
 {
     public abstract class BaseTest
     {
+        private Dictionary<IReportAdapter, string> formats =
+            new Dictionary<IReportAdapter, string>
+            {
+                {new MigraDocReportAdapter(), "pdf"},
+                {new ClosedXmlReportAdapter(), "xlsx"}
+            };
 
-        private Dictionary<ReportFormat, string> formats = new Dictionary<ReportFormat, string> { { ReportFormat.Pdf, "pdf" } };
         public void WriteFile(Report report)
         {
-
-            foreach (var format in formats.Keys) 
+            foreach (var format in formats.Keys)
             {
                 var extension = formats[format];
 
@@ -32,8 +39,10 @@ namespace Voodoo.Reports.Tests
                 Assert.IsTrue(File.Exists(path));
             }
         }
+
         public string OutputPath => @"C:\temp\reports";
         public abstract string Name { get; }
+
         public List<RandomPerson> GetData()
         {
             var data = new List<RandomPerson>();

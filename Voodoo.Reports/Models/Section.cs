@@ -8,28 +8,30 @@ using Voodoo.Reports.Models;
 
 namespace Voodoo.Reports.Models
 {
-	public class Section: Part
-	{        
+    public class Section : Part
+    {
         public Table[] Children()
         {
             return tables.ToArray();
         }
-		private List<Table> tables = new List<Table>();
-		public Table AddTable()
-		{
-			var table = new Table() { Parent = this };
-			tables.Add(table);
 
-			return table;
-		}      
+        private List<Table> tables = new List<Table>();
+
+        public Table AddTable()
+        {
+            var table = new Table() {Parent = this};
+            tables.Add(table);
+
+            return table;
+        }
+
         public void AddVerticleSpacer(double heightInInces)
         {
-            var table = new Table { Parent = this };
+            var table = new Table {Parent = this};
             tables.Add(table);
             table.AddColumn(7.5);
             var row = table.AddRow(heightInInces);
             row.AddCell(string.Empty);
-
         }
-	}
+    }
 }

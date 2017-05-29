@@ -10,12 +10,9 @@ namespace Voodoo.Reports.Tests.Rendering
     [TestClass]
     public class RowSpanTests : BaseTest
     {
-
         [TestMethod]
         public void RenderReport_ValidData_IsOk()
         {
-             
-
             var data = base.GetData();
             var report = new RowSpanReport();
             report.Build(data);

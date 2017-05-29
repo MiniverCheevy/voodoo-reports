@@ -2,9 +2,8 @@
 
 namespace Voodoo.Reports.Adapters
 {
-	public interface IReportAdapter
-	{
+    public interface IReportAdapter
+    {
         byte[] Render(Report report);
-
     }
 }

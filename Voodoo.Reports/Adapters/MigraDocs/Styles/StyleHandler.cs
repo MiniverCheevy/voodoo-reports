@@ -13,9 +13,12 @@ namespace Voodoo.Reports.Adapters.MigraDocs.Styles
         {
             this.report = report;
         }
+
         /// <summary>
         /// Does not apply, do nothing
         /// </summary>
-        public void NoOp() { }
+        public void NoOp()
+        {
+        }
     }
 }

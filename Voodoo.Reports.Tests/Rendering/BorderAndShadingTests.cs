@@ -10,7 +10,6 @@ namespace Voodoo.Reports.Tests.Rendering
     [TestClass]
     public class BorderAndShadingTests : BaseTest
     {
-
         [TestMethod]
         public void RenderReport_ValidData_IsOk()
         {

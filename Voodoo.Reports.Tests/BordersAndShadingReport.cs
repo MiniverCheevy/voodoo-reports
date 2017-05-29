@@ -8,6 +8,7 @@ using Voodoo.Reports.Models;
 using Voodoo.TestData.Models;
 using Color = System.Drawing.Color;
 using Table = Voodoo.Reports.Models.Table;
+
 namespace Voodoo.Reports.Tests
 {
     public class BordersAndShadingReport : Report
@@ -28,8 +29,8 @@ namespace Voodoo.Reports.Tests
             }
             var cells = getJaggedOutline(table);
             cells.ForEach(c => c.BackColor(Color.LightGray));
-            table.SetInnerBorders(Color.Red, Models.BorderStyle.Solid, cells);            
-            table.SetOuterBorders(Color.Blue, Models.BorderStyle.Solid, cells);
+            table.SetInnerBorders(Color.Red, Reports.Models.BorderStyle.Solid, cells);
+            table.SetOuterBorders(Color.Blue, Reports.Models.BorderStyle.Solid, cells);
 
             table = getTable();
             row = table.AddRow(.25).Big().Big().Bold().Border(BorderPosition.Bottom);
@@ -39,6 +40,12 @@ namespace Voodoo.Reports.Tests
             row.AddCell("Right").ColSpan(2).Left().ForeColor(Color.Red);
             row = table.AddRow().Center();
             row.AddCell("A").Row.AddCell("B").Row.AddCell("C").Row.AddCell("D");
+            row = table.AddRow();
+            var colorfulCell = row.AddCell().Row.AddCell().Row.AddCell().Row.AddCell();
+            colorfulCell.AddFragment("A").ForeColor(Color.Red);
+            colorfulCell.AddFragment("B").ForeColor(Color.Blue);
+            colorfulCell.AddFragment("C").ForeColor(Color.Red);
+            colorfulCell.AddFragment("D").ForeColor(Color.Blue);
         }
 
         private Cell[] getJaggedOutline(Table table)

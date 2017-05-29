@@ -22,7 +22,7 @@ namespace Voodoo.Reports.RenderingLogic.BorderBuilders
             this.border = border;
             this.innerOuter = border.InnerOuter;
         }
-      
+
         public void SetBottomBorder()
         {
             isBottom = IsBottomRow();
@@ -30,17 +30,17 @@ namespace Voodoo.Reports.RenderingLogic.BorderBuilders
             if (shouldApply)
                 cell.Cell.Border(border.Color, BorderPosition.Bottom);
         }
+
         public bool IsBottomRow()
         {
-
-            var bottomRow = map.Where(c=>c.Position.Column == cell.Position.Column).Max(c => c.Position.Row);
+            var bottomRow = map.Where(c => c.Position.Column == cell.Position.Column).Max(c => c.Position.Row);
             var isBottom = cell.Position.Row == bottomRow;
             return isBottom;
         }
+
         public bool SHouldApplyBottomBorder()
         {
             return ((isBottom && innerOuter == InnerOuter.Outer) || (!isBottom && innerOuter == InnerOuter.Inner));
-
         }
     }
 }

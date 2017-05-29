@@ -1,12 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Voodoo.Reports.Models;
 
-namespace Voodoo.Reports.Tests
+namespace Voodoo.Reports.Tests.Models
 {
     [TestClass]
     public class CascadingStyleTests
@@ -20,6 +16,7 @@ namespace Voodoo.Reports.Tests
             var hasBold = table.GetCalculatedStyles().Any(c => c is Bold);
             Assert.IsTrue(hasBold);
         }
+
         [TestMethod]
         public void ParentIsBold_Excluded_IsBold()
         {

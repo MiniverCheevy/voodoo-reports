@@ -12,14 +12,16 @@ namespace Voodoo.Reports.Models
         public abstract InnerOuter InnerOuter { get; }
     }
 
-    public class OuterBorder: OutlineInlineBorder
+    public class OuterBorder : OutlineInlineBorder
     {
         public override InnerOuter InnerOuter => InnerOuter.Outer;
     }
+
     public class InnerBorder : OutlineInlineBorder
     {
         public override InnerOuter InnerOuter => InnerOuter.Inner;
     }
+
     public enum InnerOuter
     {
         Inner = 1,

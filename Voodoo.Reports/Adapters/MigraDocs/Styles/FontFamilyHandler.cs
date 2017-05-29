@@ -8,7 +8,7 @@ namespace Voodoo.Reports.Adapters.MigraDocs.Styles
     {
         private FontFamily style;
 
-        public FontFamilyHandler(FontFamily style, Report report): base(report)
+        public FontFamilyHandler(FontFamily style, Report report) : base(report)
         {
             this.style = style;
         }

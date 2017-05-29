@@ -17,6 +17,7 @@ namespace Voodoo.Reports.Adapters.MigraDocs.Styles
         {
             NoOp();
         }
+
         public override void ApplyStyle(FormattedText text)
         {
             text.Font.Color = Color.FromRgb(style.Color.R, style.Color.G, style.Color.B);
