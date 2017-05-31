@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Voodoo.Reports</id>
+    <version>0.9.1-rc</version>
+    <title>Voodoo Reports</title>
+    <authors>Shawn Doucet</authors>
+    <owners>Shawn Doucet</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/MiniverCheevy/voodoo-reports</projectUrl>
+    <description>Programatic report generation using Migra Doc and Closed XML.</description>
+    <summary>A c# utility library.</summary>
+    <releaseNotes></releaseNotes>
+    <copyright>2016</copyright>
+    <language>en-US</language>
+    <tags>reports reporting excel pdf ssrs-is-the-devil</tags>
+  </metadata>
+    <files>
+    <file src="bin\Release\Voodoo.Reports.dll" target="lib\net452\Voodoo.Reports.dll" />
+  </files>
+</package>

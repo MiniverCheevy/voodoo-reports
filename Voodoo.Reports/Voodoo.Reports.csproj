@@ -140,6 +140,9 @@
     <Compile Include="RenderOptions.cs" />
     <Compile Include="ReportFormat.cs" />
     <None Include="packages.config" />
+    <None Include="Voodoo.Reports.nuspec">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
