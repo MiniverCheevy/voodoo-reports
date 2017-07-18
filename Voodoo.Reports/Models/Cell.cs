@@ -14,6 +14,7 @@ namespace Voodoo.Reports.Models
 
         private List<Fragment> fragments = new List<Fragment>();
         internal byte[] imageBytes;
+        internal double? imageHeight;
 
         public int Rows { get; set; } = 1;
         public int Columns { get; set; } = 1;
@@ -85,9 +86,10 @@ namespace Voodoo.Reports.Models
             return this;
         }
 
-        public Cell AddImage(byte[] bytes)
+        public Cell AddImage(byte[] bytes, double? heightInInches=null)
         {
             this.imageBytes = bytes;
+            this.imageHeight = heightInInches;
             return this;
         }
     }

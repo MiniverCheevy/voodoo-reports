@@ -2,6 +2,9 @@ namespace Voodoo.Reports.Models
 {
     public partial class Report
     {
+        public decimal? VerticalPaddingBefore { get;  set; }
+        public decimal? VerticalPaddingAfter { get;  set; }
+
         public class Margin
         {
             public decimal Top { get; set; } = 1.25m;
@@ -10,5 +13,6 @@ namespace Voodoo.Reports.Models
             public decimal Left { get; set; } = .5m;
 
         }
+      
     }
 }

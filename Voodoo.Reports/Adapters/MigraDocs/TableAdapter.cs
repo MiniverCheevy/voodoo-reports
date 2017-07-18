@@ -23,6 +23,7 @@ namespace Voodoo.Reports.Adapters.MigraDocs
             this.table = table;
             this.table.HandlePrerendingTasks();
             this.migraDocTable = migraDocTable;
+            
             this.report = report;
             applyStyles();
             handleChidren();

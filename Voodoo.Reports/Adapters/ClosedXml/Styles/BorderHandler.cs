@@ -44,6 +44,11 @@ namespace Voodoo.Reports.Adapters.ClosedXml.Styles
                     cellBorder.BottomBorder = XLBorderStyleValues.Thin;
                     cellBorder.BottomBorderColor = XLColor.FromArgb(style.Color.R, style.Color.G, style.Color.B);
                 }
+                else if (style.Style == Models.BorderStyle.Bold)
+                {
+                    cellBorder.BottomBorder = XLBorderStyleValues.Thick;
+                    cellBorder.BottomBorderColor = XLColor.FromArgb(style.Color.R, style.Color.G, style.Color.B);
+                }
                 else
                 {
                     cellBorder.BottomBorder = XLBorderStyleValues.None;
@@ -55,6 +60,11 @@ namespace Voodoo.Reports.Adapters.ClosedXml.Styles
                 if (style.Style == Models.BorderStyle.Solid)
                 {
                     cellBorder.TopBorder = XLBorderStyleValues.Thin;
+                    cellBorder.TopBorderColor = XLColor.FromArgb(style.Color.R, style.Color.G, style.Color.B);
+                }
+                else if (style.Style == Models.BorderStyle.Bold)
+                {
+                    cellBorder.TopBorder = XLBorderStyleValues.Thick;
                     cellBorder.TopBorderColor = XLColor.FromArgb(style.Color.R, style.Color.G, style.Color.B);
                 }
                 else
@@ -70,6 +80,11 @@ namespace Voodoo.Reports.Adapters.ClosedXml.Styles
                     cellBorder.LeftBorder = XLBorderStyleValues.Thin;
                     cellBorder.LeftBorderColor = XLColor.FromArgb(style.Color.R, style.Color.G, style.Color.B);
                 }
+                else if (style.Style == Models.BorderStyle.Bold)
+                {
+                    cellBorder.LeftBorder = XLBorderStyleValues.Thick;
+                    cellBorder.LeftBorderColor = XLColor.FromArgb(style.Color.R, style.Color.G, style.Color.B);
+                }
                 else
                 {
                     cellBorder.LeftBorder = XLBorderStyleValues.None;
@@ -80,6 +95,11 @@ namespace Voodoo.Reports.Adapters.ClosedXml.Styles
                 if (style.Style == Models.BorderStyle.Solid)
                 {
                     cellBorder.RightBorder = XLBorderStyleValues.Thin;
+                    cellBorder.RightBorderColor = XLColor.FromArgb(style.Color.R, style.Color.G, style.Color.B);
+                }
+                else if (style.Style == Models.BorderStyle.Bold)
+                {
+                    cellBorder.RightBorder = XLBorderStyleValues.Thick;
                     cellBorder.RightBorderColor = XLColor.FromArgb(style.Color.R, style.Color.G, style.Color.B);
                 }
                 else

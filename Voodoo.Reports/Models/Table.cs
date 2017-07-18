@@ -15,6 +15,8 @@ namespace Voodoo.Reports.Models
         public CellPositionCalculator CellPositionCalculator { get; set; }
         internal List<OuterBorder> OuterBorders { get; set; } = new List<OuterBorder>();
         internal List<InnerBorder> InternalBorders { get; set; } = new List<InnerBorder>();
+        
+
 
         public Row[] Children()
         {
@@ -43,7 +45,7 @@ namespace Voodoo.Reports.Models
             columns.Add(widthInInches);
         }
 
-        public Row AddRow(double heightInInches = .15)
+        public Row AddRow(double? heightInInches=null)
         {
             var row = new Row() {Parent = this, Height = heightInInches};
             rows.Add(row);

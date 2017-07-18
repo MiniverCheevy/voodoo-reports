@@ -40,7 +40,7 @@ namespace Voodoo.Reports.Models
             if (style.GetType() == typeof(Border))
             {
                 var border = style as Border;
-                var position = border.Position.First();
+                var position = border.Position.FirstOrDefault();
                 return collection.Any(c => c is Border && ((Border) c).Position.Contains(position));
             }
             else

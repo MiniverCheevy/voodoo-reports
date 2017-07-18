@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MigraDoc.DocumentObjectModel;
+using MigraDoc.DocumentObjectModel.Shapes;
 using MigraDoc.DocumentObjectModel.Tables;
 using Voodoo.Reports.Adapters.MigraDocs.Styles;
 using Voodoo.Reports.Models;
@@ -23,11 +24,13 @@ namespace Voodoo.Reports.Adapters.MigraDocs
             this.cell = cell;
             this.cell.HandlePrerendingTasks();
             this.migraDocCell = migraDocCell;
+            
             this.migraDocCell.Borders.ClearAll();
             if (cell.Columns != 1)
                 migraDocCell.MergeRight = cell.Columns - 1;
             if (cell.Rows != 1)
                 migraDocCell.MergeDown = cell.Rows - 1;
+            
 
             this.report = report;
             handleChidren();
@@ -70,7 +73,16 @@ namespace Voodoo.Reports.Adapters.MigraDocs
         private void addImage()
         {
             var imageString = "base64:" + Convert.ToBase64String(cell.imageBytes);
-            migraDocCell.AddImage(imageString);
+            var image = migraDocCell.AddImage(imageString);
+            image.LockAspectRatio = true;
+            image.RelativeVertical = RelativeVertical.Line;
+            image.RelativeHorizontal = RelativeHorizontal.Margin;
+            image.Top = ShapePosition.Top;
+            image.Left = ShapePosition.Right;
+            image.WrapFormat.Style = WrapStyle.Through;
+            if (cell.imageHeight.HasValue)
+                image.Height = new Unit(cell.imageHeight.Value, UnitType.Inch);
+
         }
 
         private void addFragment(Fragment fragment)

@@ -25,7 +25,8 @@ namespace Voodoo.Reports.Adapters.MigraDocs
             this.row = row;
             this.row.HandlePrerendingTasks();
             this.migraDocRow = migraDocRow;
-            migraDocRow.Height = Unit.FromInch(row.Height);
+            if (row.Height.HasValue)
+                migraDocRow.Height = Unit.FromInch(row.Height.Value);
             this.report = report;
             applyStyles();
             handleChidren();
@@ -38,8 +39,18 @@ namespace Voodoo.Reports.Adapters.MigraDocs
             foreach (var cell in row.Children())
             {
                 var position = table.GetPosition(cell);
-                var migraDocCell = this.migraDocRow.Cells[position.Column];
-                var adapter = new CellAdapter(cell, migraDocCell, report);
+                try
+                {
+                    var migraDocCell = this.migraDocRow.Cells[position.Column];
+                    var adapter = new CellAdapter(cell, migraDocCell, report);
+                }
+                catch (System.ArgumentOutOfRangeException ex)
+                {
+                    var message = $"The cell ({cell.ToString()}) of row ({row.ToString()}) threw an index out of range exception at {position.Column}.  Is it possible that you added a row span above but still added the same number of cells to a preceding row?";
+                    var exc = new Exception(message);
+                    exc.Data.Add("ex", ex.ToString());
+                    throw exc;
+                }
             }
         }
 

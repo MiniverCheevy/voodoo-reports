@@ -25,7 +25,7 @@ namespace Voodoo.Reports.Models
             return table;
         }
 
-        public void AddVerticleSpacer(double heightInInces)
+        public void AddVerticalSpacer(double? heightInInces)
         {
             var table = new Table {Parent = this};
             tables.Add(table);

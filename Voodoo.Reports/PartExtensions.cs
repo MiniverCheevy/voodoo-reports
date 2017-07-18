@@ -12,7 +12,7 @@ namespace Voodoo.Reports
         public static T Right<T>(this T part)
             where T : Part
         {
-            part.Styles.Add(new Align {Alignment = Alignment.Right});
+            part.Styles.Add(new Align { Alignment = Alignment.Right });
             return part;
         }
 
@@ -22,7 +22,7 @@ namespace Voodoo.Reports
         public static T Center<T>(this T part)
             where T : Part
         {
-            part.Styles.Add(new Align {Alignment = Alignment.Center});
+            part.Styles.Add(new Align { Alignment = Alignment.Center });
             return part;
         }
 
@@ -32,7 +32,7 @@ namespace Voodoo.Reports
         public static T Left<T>(this T part)
             where T : Part
         {
-            part.Styles.Add(new Align {Alignment = Alignment.Left});
+            part.Styles.Add(new Align { Alignment = Alignment.Left });
             return part;
         }
 
@@ -42,7 +42,7 @@ namespace Voodoo.Reports
         public static T Justified<T>(this T part)
             where T : Part
         {
-            part.Styles.Add(new Align {Alignment = Alignment.Justified});
+            part.Styles.Add(new Align { Alignment = Alignment.Justified });
             return part;
         }
 
@@ -70,28 +70,28 @@ namespace Voodoo.Reports
         public static T ForeColor<T>(this T part, Color color)
             where T : Part
         {
-            part.Styles.Add(new ForeColor() {Color = color});
+            part.Styles.Add(new ForeColor() { Color = color });
             return part;
         }
 
         public static T BackColor<T>(this T part, Color color)
             where T : Part
         {
-            part.Styles.Add(new BackColor() {Color = color});
+            part.Styles.Add(new BackColor() { Color = color });
             return part;
         }
 
         public static T FontSize<T>(this T part, double size)
             where T : Part
         {
-            part.Styles.Add(new FontSize() {Size = size});
+            part.Styles.Add(new FontSize() { Size = size });
             return part;
         }
 
         public static T FontFamily<T>(this T part, string name)
             where T : Part
         {
-            part.Styles.Add(new FontFamily() {Name = name});
+            part.Styles.Add(new FontFamily() { Name = name });
             return part;
         }
 
@@ -147,20 +147,29 @@ namespace Voodoo.Reports
         public static T NoBorder<T>(this T part, params BorderPosition[] positions)
             where T : Part
         {
-            part.ExcludedStyles.Add(new Border {Position = positions});
+            if (positions == null)
+                positions = new BorderPosition[] { BorderPosition.All };
+            part.ExcludedStyles.Add(new Border { Position = positions });
             return part;
         }
 
         public static T Border<T>(this T part, params BorderPosition[] positions)
             where T : Part
         {
-            part.Styles.Add(new Border {Position = positions, Color = Color.Black});
+            if (positions == null)
+                positions = new BorderPosition[] { BorderPosition.All };
+
+            part.Styles.Add(new Border { Position = positions, Color = Color.Black });
             return part;
         }
 
-        public static T Border<T>(this T part, Color color, params BorderPosition[] positions)
+        public static T Border<T>(this T part, Color color, params BorderPosition[] positions )
             where T : Part
         {
+            if (color == null)
+                color = Color.Black;
+            if (positions == null)
+                positions = new BorderPosition[] { BorderPosition.All };
             part.Styles.Add(new Border {Position = positions, Color = color});
             return part;
         }

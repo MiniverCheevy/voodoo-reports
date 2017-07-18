@@ -19,7 +19,8 @@ namespace Voodoo.Reports.Adapters.MigraDocs
         public ReportAdapter()
         {
             Document = new Document();
-
+            
+            
             DefaultSection = Document.AddSection();
             Header = DefaultSection.Headers.Primary;
             Footer = DefaultSection.Footers.Primary;
@@ -28,6 +29,14 @@ namespace Voodoo.Reports.Adapters.MigraDocs
         public byte[] Render(Report report)
         {
             this.Report = report;
+
+            var style = Document.Styles["Normal"];
+            var paddingBefore = report.VerticalPaddingBefore.Value ?? .01;
+            var paddingAfter = report.VerticalPaddingAfter.Value ?? .01;
+                style.ParagraphFormat.SpaceBefore = $"{paddingBefore}in";
+            style.ParagraphFormat.SpaceAfter = $"{paddingAfter}in";
+
+
             switch (Report.Orientation)
             {
                 case Orientation.Portrait:

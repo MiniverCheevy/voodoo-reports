@@ -13,7 +13,7 @@ namespace Voodoo.Reports.Models
             return cells.ToArray();
         }
 
-        internal double Height { get; set; }
+        internal double? Height { get; set; }
         internal bool IsHeader { get; private set; }
 
         private List<Cell> cells = new List<Cell>();

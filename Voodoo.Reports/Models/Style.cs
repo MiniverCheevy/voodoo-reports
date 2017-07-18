@@ -75,7 +75,9 @@ namespace Voodoo.Reports.Models
     public enum BorderStyle
     {
         None = 0,
-        Solid = 1
+        Solid = 1,
+        Bold =2
+
     }
 
     public enum BorderPosition

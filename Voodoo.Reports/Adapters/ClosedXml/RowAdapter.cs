@@ -28,7 +28,8 @@ namespace Voodoo.Reports.Adapters.ClosedXml
             tableRows = table.Children();
 
             this.row.HandlePrerendingTasks();
-            worksheet.Row(currentRowIndex).Height = row.Height *
+            var height = row.Height ?? .15;
+            worksheet.Row(currentRowIndex).Height = height *
                                                     report.RenderOptions.Excel.VerticleUnitsPerInch.To<double>();
 
             this.report = report;

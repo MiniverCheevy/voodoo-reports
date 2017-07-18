@@ -27,10 +27,10 @@ namespace Voodoo.Reports.RenderingLogic
         {
             numberOfColumns = table.Columns().Count();
             numberOfRows = table.Children().Count();
-            this.CellPosition = new CellPosition[numberOfColumns, numberOfRows];
-            foreach (var column in Enumerable.Range(0, numberOfColumns))
+            this.CellPosition = new CellPosition[numberOfColumns+3, numberOfRows+3];
+            foreach (var column in Enumerable.Range(0, numberOfColumns+3))
             {
-                foreach (var row in Enumerable.Range(0, numberOfRows))
+                foreach (var row in Enumerable.Range(0, numberOfRows+3))
                 {
                     this.CellPosition[column, row] = new Models.CellPosition();
                 }
@@ -97,7 +97,21 @@ namespace Voodoo.Reports.RenderingLogic
                 CellPosition[cellCount, rowCount + offSetRow].Column += 1;
                 foreach (var otherColumns in Enumerable.Range(cellCount + 1, numberOfColumns - 1))
                 {
-                    CellPosition[otherColumns, rowCount + offSetRow].Column += 1;
+                    try
+                    {
+                        CellPosition[otherColumns, rowCount + offSetRow].Column += 1;
+                    }
+                    catch (Exception ex)
+                    {
+                        
+
+                        var message = $"There was an error calculating cell postions at postiion near [{otherColumns},{rowCount + offSetRow}]";
+                        message = message + Environment.NewLine;
+                        message = message + this.ToString();
+                        var exc = new Exception(message);
+                        exc.Data.Add("ex", ex.ToString());
+                        throw exc;
+                    }
                 }
             }
         }
@@ -112,11 +126,17 @@ namespace Voodoo.Reports.RenderingLogic
                 var columns = row.Children().Select(c => c as Cell).ToArray();
                 foreach (var column in columns)
                 {
-                    var position = this.PositionDictionary[column];
-                    builder.Append($"(x={position.Column},y={position.Row})".PadRight(10));
-                    builder.Append(" - ");
-                    builder.Append(column.ToString().PadRight(30));
-
+                    try
+                    {
+                        var position = this.PositionDictionary[column];
+                        builder.Append($"(x={position.Column},y={position.Row})".PadRight(10));
+                        builder.Append(" - ");
+                        builder.Append(column.ToString().PadRight(30));
+                    }
+                    catch 
+                    {
+                        builder.Append("ERROR");
+                    }
                     builder.Append("|");
                 }
                 builder.AppendLine();
