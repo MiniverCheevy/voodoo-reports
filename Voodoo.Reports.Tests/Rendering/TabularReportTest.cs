@@ -11,7 +11,7 @@ namespace Voodoo.Reports.Tests.Rendering
             var data = base.GetData();
             var report = new TabularReport();
             report.Build(data);
-            report.Body.AddVerticleSpacer(.5);
+            report.Body.AddVerticalSpacer(.5);
             report.Build(data);
             base.WriteFile(report);
         }

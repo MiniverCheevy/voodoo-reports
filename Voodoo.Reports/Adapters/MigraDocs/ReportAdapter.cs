@@ -31,8 +31,8 @@ namespace Voodoo.Reports.Adapters.MigraDocs
             this.Report = report;
 
             var style = Document.Styles["Normal"];
-            var paddingBefore = report.VerticalPaddingBefore.Value ?? .01;
-            var paddingAfter = report.VerticalPaddingAfter.Value ?? .01;
+            var paddingBefore = report.VerticalPaddingBefore ?? .01m;
+            var paddingAfter = report.VerticalPaddingAfter ?? .01m;
                 style.ParagraphFormat.SpaceBefore = $"{paddingBefore}in";
             style.ParagraphFormat.SpaceAfter = $"{paddingAfter}in";
 

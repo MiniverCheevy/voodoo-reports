@@ -30,13 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FluentAssertions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
-      <HintPath>..\packages\FluentAssertions.4.5.0\lib\net45\FluentAssertions.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="FluentAssertions, Version=4.19.3.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.4.19.3\lib\net45\FluentAssertions.dll</HintPath>
     </Reference>
-    <Reference Include="FluentAssertions.Core, Version=4.5.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
-      <HintPath>..\packages\FluentAssertions.4.5.0\lib\net45\FluentAssertions.Core.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="FluentAssertions.Core, Version=4.19.3.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.4.19.3\lib\net45\FluentAssertions.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -52,11 +50,11 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Voodoo, Version=2.2.17.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Voodoo.Patterns.2.2.17\lib\net452\Voodoo.dll</HintPath>
+    <Reference Include="Voodoo, Version=2.2.23.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Voodoo.Patterns.2.2.24\lib\net452\Voodoo.dll</HintPath>
     </Reference>
-    <Reference Include="Voodoo.TestData, Version=1.0.16.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Voodoo.TestData.1.0.17\lib\net40\Voodoo.TestData.dll</HintPath>
+    <Reference Include="Voodoo.TestData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Voodoo.TestData.1.0.19\lib\net40\Voodoo.TestData.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -74,9 +72,6 @@
     <Compile Include="TabularReport.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
@@ -91,8 +86,6 @@
     <EmbeddedResource Include="Images\penguin.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\corporate.txt" />
-    <Content Include="Data\star-trek.txt" />
     <Content Include="Images\360px-Polemonium_reptans_2009.jpg" />
     <Content Include="Images\An_Teallach_panorama.jpg" />
     <Content Include="Images\Big_Mac_hamburger.jpg" />
@@ -102,6 +95,9 @@
     <Content Include="Images\Pahoeoe_fountain_edit2.jpg" />
     <Content Include="Images\Roasted_coffee_beans.jpg" />
     <Content Include="Images\The_Earth_seen_from_Apollo_17.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
