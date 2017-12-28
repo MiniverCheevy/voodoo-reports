@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Voodoo.Reports</id>
-    <version>0.9.2.3-rc</version>
+    <version>0.9.2.4-rc</version>
     <title>Voodoo Reports</title>
     <authors>Shawn Doucet</authors>
     <owners>Shawn Doucet</owners>
