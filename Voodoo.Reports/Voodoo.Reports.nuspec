@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Voodoo.Reports</id>
-    <version>0.9.2.4-rc</version>
+    <version>0.9.2.5-rc</version>
     <title>Voodoo Reports</title>
     <authors>Shawn Doucet</authors>
     <owners>Shawn Doucet</owners>
@@ -16,13 +16,13 @@
     <language>en-US</language>
     <tags>reports reporting excel pdf ssrs-is-the-devil</tags>
     <dependencies>
-      <dependency  id="ClosedXML" version="0.89.0"  />
-      <dependency  id="CsvHelper" version="2.16.3.0"  />
+      <dependency  id="ClosedXML" version="0.90.0"  />
+      <dependency  id="CsvHelper" version="6.1.0"  />
       <dependency  id="DocumentFormat.OpenXml" version="2.7.2"  />
       <dependency  id="FastMember.Signed" version="1.1.0"  />
       <dependency  id="PdfSharp.MigraDoc" version="2.0.1"  />
-      <dependency  id="PDFsharp-MigraDoc" version="1.50.4619-beta4c"  />
-      <dependency  id="Voodoo.Patterns" version="2.2.26"  />
+      <dependency  id="PDFsharp-MigraDoc" version="1.50.4740-beta5"  />
+      <dependency  id="Voodoo.Patterns" version="2.2.28"  />
     </dependencies>
   </metadata>
     <files>
