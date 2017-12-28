@@ -16,7 +16,13 @@ namespace Voodoo.Reports.Models
         internal byte[] imageBytes;
         internal double? imageHeight;
 
+        /// <summary>
+        /// Related to rowspan
+        /// </summary>
         public int Rows { get; set; } = 1;
+        /// <summary>
+        /// related to colspan
+        /// </summary>
         public int Columns { get; set; } = 1;
 
         public decimal Width { get; set; }

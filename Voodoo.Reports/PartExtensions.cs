@@ -6,6 +6,34 @@ namespace Voodoo.Reports
 {
     public static class PartExtensions
     {
+
+
+
+        /// <summary>
+        /// Only works at Cell Level or Higher
+        /// </summary>
+        public static T Top<T>(this T part)
+            where T : Part
+        {
+            part.Styles.Add(new VAlign {  VerticleAlignment= VerticleAlignment.Top });
+            return part;
+        }
+        /// <summary>
+        /// Only works at Cell Level or Higher
+        /// </summary>
+        public static T Middle<T>(this T part)
+            where T : Part
+        {
+            part.Styles.Add(new VAlign { VerticleAlignment = VerticleAlignment.Center });
+            return part;
+        }
+        public static T Bottom<T>(this T part)
+           where T : Part
+        {
+            part.Styles.Add(new VAlign { VerticleAlignment = VerticleAlignment.Bottom });
+            return part;
+        }
+
         /// <summary>
         /// Only works at Cell Level or Higher
         /// </summary>

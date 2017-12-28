@@ -17,11 +17,23 @@ namespace Voodoo.Reports.Models
         Justified = 4
     }
 
-
     public class Align : Style
     {
         public Alignment Alignment { get; set; }
     }
+
+    public enum VerticleAlignment
+    {
+        Top = 0,
+        Center = 1,
+        Bottom = 2
+    }
+    public class VAlign : Style
+    {
+        public VerticleAlignment VerticleAlignment { get; set; } = VerticleAlignment.Center;
+    }
+
+    
 
     public class Bold : Style
     {

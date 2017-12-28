@@ -38,6 +38,11 @@ namespace Voodoo.Reports.Tests
             row = table.AddRow(.2).Big().Bold().BackColor(Color.LightGray);
             row.AddCell("Left").ColSpan(2).Right().ForeColor(Color.Blue);
             row.AddCell("Right").ColSpan(2).Left().ForeColor(Color.Red);
+            row = table.AddRow(2).Border(BorderPosition.All).Center();
+            row.AddCell("Vertical Alignment").Middle().Center();
+            row.AddCell("Top").Top().Center();
+            row.AddCell("Middle").Middle().Center();
+            row.AddCell("Bottom").Bottom().Center();
             row = table.AddRow().Center();
             row.AddCell("A").Row.AddCell("B").Row.AddCell("C").Row.AddCell("D");
             row = table.AddRow();

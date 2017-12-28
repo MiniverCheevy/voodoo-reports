@@ -14,6 +14,9 @@ namespace Voodoo.Reports.Adapters.ClosedXml.Styles
             var align = style as Align;
             if (align != null)
                 return new AlignHandler(align, report);
+            var vAlign = style as VAlign;
+            if (vAlign != null)
+                return new VerticalAlignHandler(vAlign, report);
             var bold = style as Bold;
             if (bold != null)
                 return new BoldHandler(bold, report);

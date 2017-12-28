@@ -91,6 +91,7 @@
     <Compile Include="Adapters\ClosedXml\Styles\StyleFactory.cs" />
     <Compile Include="Adapters\ClosedXml\Styles\StyleHandler.cs" />
     <Compile Include="Adapters\ClosedXml\Styles\UnderlineHandler.cs" />
+    <Compile Include="Adapters\ClosedXml\Styles\VerticalAlignHandler.cs" />
     <Compile Include="Adapters\ClosedXml\TableAdapter.cs" />
     <Compile Include="Adapters\IReportAdapter.cs" />
     <Compile Include="Adapters\MigraDocs\CellAdapter.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Adapters\MigraDocs\Styles\StyleFactory.cs" />
     <Compile Include="Adapters\MigraDocs\Styles\StyleHandler.cs" />
     <Compile Include="Adapters\MigraDocs\Styles\UnderlineHandler.cs" />
+    <Compile Include="Adapters\MigraDocs\Styles\VerticalAlignHandler.cs" />
     <Compile Include="Adapters\MigraDocs\TableAdapter.cs" />
     <Compile Include="Models\Fragment.cs" />
     <Compile Include="Models\Orientation.cs" />

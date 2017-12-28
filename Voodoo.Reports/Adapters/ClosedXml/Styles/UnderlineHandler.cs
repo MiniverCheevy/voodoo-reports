@@ -1,7 +1,6 @@
 ﻿using ClosedXML.Excel;
 using MigraDoc.DocumentObjectModel;
 using Voodoo.Reports.Models;
-using Cell = MigraDoc.DocumentObjectModel.Tables.Cell;
 using Underline = Voodoo.Reports.Models.Underline;
 
 namespace Voodoo.Reports.Adapters.ClosedXml.Styles
