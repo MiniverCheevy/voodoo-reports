@@ -1,0 +1,69 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+      <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\Voodoo.Reports.Tests\**\*.cs" Exclude="..\Voodoo.Reports.Tests\**\AssemblyInfo*.*;..\Voodoo.Reports.Tests\**\Temp*.*;..\Voodoo.Reports.Tests\**\dotnet*.*" />
+        <Resource Include="..\Voodoo.Reports.Tests\Images\*.jpg" />
+	        <Resource Include="..\Voodoo.Reports.Tests\Images\*.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Remove="..\Voodoo.Reports.Tests\Images\360px-Polemonium_reptans_2009.jpg" />
+    <Resource Remove="..\Voodoo.Reports.Tests\Images\An_Teallach_panorama.jpg" />
+    <Resource Remove="..\Voodoo.Reports.Tests\Images\Big_Mac_hamburger.jpg" />
+    <Resource Remove="..\Voodoo.Reports.Tests\Images\Charolais_cattle,_Sierra_Nevada,_Venezuela.jpg" />
+    <Resource Remove="..\Voodoo.Reports.Tests\Images\Hat - Copy.png" />
+    <Resource Remove="..\Voodoo.Reports.Tests\Images\Hat.png" />
+    <Resource Remove="..\Voodoo.Reports.Tests\Images\logo.png" />
+    <Resource Remove="..\Voodoo.Reports.Tests\Images\Macaca_nigra_self-portrait_(rotated_and_cropped).jpg" />
+    <Resource Remove="..\Voodoo.Reports.Tests\Images\NASA_Unveils_Celestial_Fireworks_as_Official_Hubble_25th_Anniversary_Image.jpg" />
+    <Resource Remove="..\Voodoo.Reports.Tests\Images\Pahoeoe_fountain_edit2.jpg" />
+    <Resource Remove="..\Voodoo.Reports.Tests\Images\penguin.jpg" />
+    <Resource Remove="..\Voodoo.Reports.Tests\Images\Roasted_coffee_beans.jpg" />
+    <Resource Remove="..\Voodoo.Reports.Tests\Images\The_Earth_seen_from_Apollo_17.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\Voodoo.Reports.Tests\Images\360px-Polemonium_reptans_2009.jpg" Link="Images\360px-Polemonium_reptans_2009.jpg" />
+    <EmbeddedResource Include="..\Voodoo.Reports.Tests\Images\An_Teallach_panorama.jpg" Link="Images\An_Teallach_panorama.jpg" />
+    <EmbeddedResource Include="..\Voodoo.Reports.Tests\Images\Big_Mac_hamburger.jpg" Link="Images\Big_Mac_hamburger.jpg" />
+    <EmbeddedResource Include="..\Voodoo.Reports.Tests\Images\Charolais_cattle,_Sierra_Nevada,_Venezuela.jpg" Link="Images\Charolais_cattle,_Sierra_Nevada,_Venezuela.jpg" />
+    <EmbeddedResource Include="..\Voodoo.Reports.Tests\Images\Hat - Copy.png" Link="Images\Hat - Copy.png" />
+    <EmbeddedResource Include="..\Voodoo.Reports.Tests\Images\Hat.png" Link="Images\Hat.png" />
+    <EmbeddedResource Include="..\Voodoo.Reports.Tests\Images\logo.png" Link="Images\logo.png" />
+    <EmbeddedResource Include="..\Voodoo.Reports.Tests\Images\Macaca_nigra_self-portrait_(rotated_and_cropped).jpg" />
+    <EmbeddedResource Include="..\Voodoo.Reports.Tests\Images\NASA_Unveils_Celestial_Fireworks_as_Official_Hubble_25th_Anniversary_Image.jpg" Link="Images\NASA_Unveils_Celestial_Fireworks_as_Official_Hubble_25th_Anniversary_Image.jpg" />
+    <EmbeddedResource Include="..\Voodoo.Reports.Tests\Images\Pahoeoe_fountain_edit2.jpg" Link="Images\Pahoeoe_fountain_edit2.jpg" />
+    <EmbeddedResource Include="..\Voodoo.Reports.Tests\Images\penguin.jpg" Link="Images\penguin.jpg" />
+    <EmbeddedResource Include="..\Voodoo.Reports.Tests\Images\Roasted_coffee_beans.jpg" Link="Images\Roasted_coffee_beans.jpg" />
+    <EmbeddedResource Include="..\Voodoo.Reports.Tests\Images\The_Earth_seen_from_Apollo_17.jpg" Link="Images\The_Earth_seen_from_Apollo_17.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.93.1" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.8.1" />
+    <PackageReference Include="FluentAssertions" Version="5.4.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.3.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.3.2" />
+    <PackageReference Include="SixLabors.Fonts" Version="1.0.0-beta0007" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-beta0006" />
+    <PackageReference Include="Voodoo.Patterns" Version="3.0.0.5" />
+    <PackageReference Include="Voodoo.TestData" Version="2.0.0-alpha" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\deps\Didstopia-PDFSharp\Didstopia.PDFSharp\Didstopia.PDFSharp.csproj" />
+    <ProjectReference Include="..\Voodoo.Reports\Voodoo.Reports.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="..\Voodoo.Reports.Tests\Images\Macaca_nigra_self-portrait_%28rotated_and_cropped%29.jpg" Link="Images\Macaca_nigra_self-portrait_%28rotated_and_cropped%29.jpg" />
+  </ItemGroup>
+</Project>

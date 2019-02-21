@@ -5,8 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PdfSharp.Pdf;
-using PdfSharp.Pdf.IO;
+using Didstopia.PDFSharp.Pdf;
+using Didstopia.PDFSharp.Pdf.IO;
+
 
 namespace Voodoo.Reports
 {

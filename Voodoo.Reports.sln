@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voodoo.Reports", "Voodoo.Reports\Voodoo.Reports.csproj", "{D6A6DB61-FAF9-42F7-AB2F-468FB6D850DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Voodoo.Reports", "Voodoo.Reports\Voodoo.Reports.csproj", "{D6A6DB61-FAF9-42F7-AB2F-468FB6D850DD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voodoo.Reports.Tests", "Voodoo.Reports.Tests\Voodoo.Reports.Tests.csproj", "{580FB041-EA1B-43D8-B5D8-19CC098EC326}"
 EndProject
@@ -11,6 +11,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Voodoo.Reports.Tests.Core", "Voodoo.Reports.Tests.Core\Voodoo.Reports.Tests.Core.csproj", "{6C8148B7-5ADF-4E22-8A91-0EE75AC0EDD3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Didstopia.PDFSharp", "deps\Didstopia-PDFSharp\Didstopia.PDFSharp\Didstopia.PDFSharp.csproj", "{76D38CDC-4380-4E6E-985F-8BF43084561B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MigraDoc.DocumentObjectModel.Standard", "deps\Connatix-MigraDoc\MigraDoc\src\MigraDoc.DocumentObjectModel.Standard\MigraDoc.DocumentObjectModel.Standard.csproj", "{C205DF28-5207-4196-A34B-2FBCAB0A36B3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MigraDoc.Rendering.Standard", "deps\Connatix-MigraDoc\MigraDoc\src\MigraDoc.Rendering.Standard\MigraDoc.Rendering.Standard.csproj", "{5B33D082-39F8-42B6-BB8E-0D2DFC948AEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,8 +34,27 @@ Global
 		{580FB041-EA1B-43D8-B5D8-19CC098EC326}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{580FB041-EA1B-43D8-B5D8-19CC098EC326}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{580FB041-EA1B-43D8-B5D8-19CC098EC326}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C8148B7-5ADF-4E22-8A91-0EE75AC0EDD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C8148B7-5ADF-4E22-8A91-0EE75AC0EDD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C8148B7-5ADF-4E22-8A91-0EE75AC0EDD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C8148B7-5ADF-4E22-8A91-0EE75AC0EDD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76D38CDC-4380-4E6E-985F-8BF43084561B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76D38CDC-4380-4E6E-985F-8BF43084561B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76D38CDC-4380-4E6E-985F-8BF43084561B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76D38CDC-4380-4E6E-985F-8BF43084561B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C205DF28-5207-4196-A34B-2FBCAB0A36B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C205DF28-5207-4196-A34B-2FBCAB0A36B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C205DF28-5207-4196-A34B-2FBCAB0A36B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C205DF28-5207-4196-A34B-2FBCAB0A36B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B33D082-39F8-42B6-BB8E-0D2DFC948AEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B33D082-39F8-42B6-BB8E-0D2DFC948AEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B33D082-39F8-42B6-BB8E-0D2DFC948AEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B33D082-39F8-42B6-BB8E-0D2DFC948AEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BBED1F30-C0D4-424A-AC3A-D69D6198F6EF}
 	EndGlobalSection
 EndGlobal

@@ -16,6 +16,7 @@ namespace Voodoo.Reports.Tests
 
         public TabularReport()
         {
+            this.MarginInInches.HeaderDistance = .4m;
             this.Body.Border(BorderPosition.Top, BorderPosition.Bottom);
             addHeader();
             AddDefaultFooter();
@@ -30,10 +31,10 @@ namespace Voodoo.Reports.Tests
             header.AddColumn(1.5);
 
             var image = new Images.Images().Hat;
-            var row = header.AddRow();
-            var left = row.AddCell().AddImage(image);
+            var row = header.AddRow(.7);
+            var left = row.AddCell().AddImage(image, .7);
             var middle = row.AddCell().Bold().Big().Big().Big()
-                .Center().AddFragment("Title");
+                .Center().Middle().AddFragment("Title");
             var right = row.AddCell();
         }
 

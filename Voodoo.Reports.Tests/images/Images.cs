@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,7 +45,8 @@ namespace Voodoo.Reports.Tests.Images
 
         private byte[] getImage(string imageName)
         {
-            imageName = $"Voodoo.Reports.Tests.Images.{imageName}";
+            var asm = this.GetType().Assembly.ToString().Split(',').First();
+            imageName = $"{asm}.Images.{imageName}";
             var assembly = typeof(Images).Assembly;
             using (var resFilestream = assembly.GetManifestResourceStream(imageName))
             {

@@ -5,22 +5,29 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Didstopia.PDFSharp.Fonts;
 using DocumentFormat.OpenXml.Wordprocessing;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.Rendering;
+using MigraDocCore.DocumentObjectModel.MigraDoc.DocumentObjectModel.Shapes;
 using Voodoo.Reports.Models;
-using Document = MigraDoc.DocumentObjectModel.Document;
 using Orientation = Voodoo.Reports.Models.Orientation;
 
 namespace Voodoo.Reports.Adapters.MigraDocs
 {
     public class ReportAdapter : IReportAdapter
     {
-        public ReportAdapter()
+        static ReportAdapter()
         {
-            Document = new Document();
+            ImageSource.ImageSourceImpl = new ImageSharpImageSource();
             
-            
+            //https://stackoverflow.com/questions/48679265/loading-a-font-with-pdfsharp-net-standard-preview-from-xamarin-forms-fails-no
+            GlobalFontSettings.FontResolver = new FontResolver();
+
+        }
+        public ReportAdapter()
+        {            
+            Document = new MigraDoc.DocumentObjectModel.Document();
             DefaultSection = Document.AddSection();
             Header = DefaultSection.Headers.Primary;
             Footer = DefaultSection.Footers.Primary;
@@ -73,6 +80,8 @@ namespace Voodoo.Reports.Adapters.MigraDocs
 
         private void applyDefaultStyles()
         {
+            DefaultSection.PageSetup.FooterDistance = $"{Report.MarginInInches.FooterDistance}in";
+            DefaultSection.PageSetup.HeaderDistance = $"{Report.MarginInInches.HeaderDistance}in";
             DefaultSection.PageSetup.RightMargin = $"{Report.MarginInInches.Right}in";
             DefaultSection.PageSetup.LeftMargin = $"{Report.MarginInInches.Left}in";
             DefaultSection.PageSetup.TopMargin = $"{Report.MarginInInches.Top}in";
@@ -108,6 +117,8 @@ namespace Voodoo.Reports.Adapters.MigraDocs
 
         private void buildHeader()
         {
+            
+            
             if (Report.ShowRuler)
                 Report.AddRuler(Report.Header);
             foreach (var table in Report.Header.Children())
@@ -129,6 +140,7 @@ namespace Voodoo.Reports.Adapters.MigraDocs
 
         private void buildFooter()
         {
+            
             if (Report.ShowRuler)
                 Report.AddRuler(Report.Footer);
             foreach (var table in Report.Footer.Children())
@@ -141,6 +153,6 @@ namespace Voodoo.Reports.Adapters.MigraDocs
         public HeaderFooter Header { get; set; }
         public HeaderFooter Footer { get; set; }
         public MigraDoc.DocumentObjectModel.Section DefaultSection { get; set; }
-        public Document Document { get; set; }
+        public MigraDoc.DocumentObjectModel.Document Document { get; set; }
     }
 }

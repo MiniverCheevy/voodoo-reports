@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using Voodoo.Reports.Models;
 using Voodoo.TestData.Models;
 using Color = System.Drawing.Color;
@@ -11,6 +10,7 @@ using Table = Voodoo.Reports.Models.Table;
 
 namespace Voodoo.Reports.Tests
 {
+    
     public class BordersAndShadingReport : Report
     {
         public void Build(List<RandomPerson> data)

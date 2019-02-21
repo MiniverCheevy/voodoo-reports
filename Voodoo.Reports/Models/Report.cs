@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Didstopia.PDFSharp.Fonts;
 using Voodoo.Reports.Adapters;
 using Pdf = Voodoo.Reports.Adapters.MigraDocs;
 using Excel = Voodoo.Reports.Adapters.ClosedXml;
@@ -15,25 +16,30 @@ namespace Voodoo.Reports.Models
         public double DefaultFontSize { get; set; } = 7;
         public Margin MarginInInches { get; set; } = new Margin();
         public RenderOptions RenderOptions { get; set; } = new RenderOptions();
-
+        public decimal? VerticalPaddingBefore { get; set; }
+        public decimal? VerticalPaddingAfter { get; set; }
         public Section Header { get; set; }
         public Section Body { get; set; }
         public Section Footer { get; set; }
         public Orientation Orientation { get; set; } = Orientation.Portrait;
 
         public bool ShowRuler { get; set; }
-
+        static Report()
+        {
+            
+        }
         public Report()
         {
+            
             Header = new Section() {Parent = this};
             Body = new Section {Parent = this};
-            Footer = new Models.Section {Parent = this};
+            Footer = new Section { Parent = this};
         }
 
         public void AddDefaultFooter()
         {
             var footer = Footer.AddTable().Italics();
-            ;
+            
             footer.NoBorder();
             footer.AddColumn(1.5);
             footer.AddColumn(4.5);

@@ -6,6 +6,7 @@ namespace Voodoo.Reports.Models
 {
     public class Row : Part, ITabularObject
     {
+        private int cellIndex = 0;
         public Table Table => Parent as Table;
 
         public Cell[] Children()
@@ -15,6 +16,7 @@ namespace Voodoo.Reports.Models
 
         internal double? Height { get; set; }
         internal bool IsHeader { get; private set; }
+        public int Index { get; internal set; }
 
         private List<Cell> cells = new List<Cell>();
 
@@ -26,7 +28,7 @@ namespace Voodoo.Reports.Models
 
         public Cell AddCell()
         {
-            var cell = new Cell() {Parent = this};
+            var cell = new Cell() {Parent = this, Index = cellIndex ++};
             cells.Add(cell);
             return cell;
         }
@@ -36,6 +38,7 @@ namespace Voodoo.Reports.Models
             var cell = new Cell
             {
                 Parent = this,
+                Index = cellIndex++
             };
             cell.AddFragment(content);
             cells.Add(cell);

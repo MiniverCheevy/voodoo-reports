@@ -75,7 +75,7 @@ namespace Voodoo.Reports.Adapters.ClosedXml
         private void addFragment(Fragment fragment)
         {
             fragment.StartIndex = excelCell.Value.To<string>().Length;
-            excelCell.Value += fragment.Text;
+            excelCell.Value = $"{excelCell.Value}{fragment.Text}";
 
             //if (fragment.IsNumberOfPages)
             //    paragraph.AddNumPagesField();

@@ -72,7 +72,8 @@ namespace Voodoo.Reports.Adapters.MigraDocs
 
         private void addImage()
         {
-            var imageString = "base64:" + Convert.ToBase64String(cell.imageBytes);
+
+            var imageString = "base64:" + Convert.ToBase64String(cell.imageBytes);            
             var image = migraDocCell.AddImage(imageString);
             image.LockAspectRatio = true;
             image.RelativeVertical = RelativeVertical.Line;

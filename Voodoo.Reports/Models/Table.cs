@@ -15,8 +15,8 @@ namespace Voodoo.Reports.Models
         public CellPositionCalculator CellPositionCalculator { get; set; }
         internal List<OuterBorder> OuterBorders { get; set; } = new List<OuterBorder>();
         internal List<InnerBorder> InternalBorders { get; set; } = new List<InnerBorder>();
-        
-
+        public int Index { get; internal set; }
+        private int rowIndex = 0;
 
         public Row[] Children()
         {
@@ -47,7 +47,8 @@ namespace Voodoo.Reports.Models
 
         public Row AddRow(double? heightInInches=null)
         {
-            var row = new Row() {Parent = this, Height = heightInInches};
+            var row = new Row() {Parent = this, Height = heightInInches,
+                Index = rowIndex++};
             rows.Add(row);
             return row;
         }
@@ -88,10 +89,18 @@ namespace Voodoo.Reports.Models
 
         internal override void HandlePrerendingTasks()
         {
-            var maxColumns = this.Children().Max(c => c.Children().Count());
-            if (maxColumns < columns.Count())
-                throw new Exception(
-                    $"Found {maxColumns} but only {columns.Count()} are defined.  Use AddColumn or AddColumns to add columns to this table");
+            var numberOfColumns = this.columns.Count();
+
+            foreach (var row in this.rows)
+            {
+                var cellCount = row.Children().Count();
+                if ( cellCount > numberOfColumns )
+                {
+                    var message = $"At Tables[{Index}].Rows[{row.Index}] Found {cellCount} cells but only {numberOfColumns} columns are defined. [{row.ToString()}]";
+                    throw new TooManyCellsException(message);
+                }
+            }
+                    
 
             if (this.CellPositionCalculator == null)
             {

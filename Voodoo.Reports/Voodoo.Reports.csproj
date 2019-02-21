@@ -1,154 +1,55 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D6A6DB61-FAF9-42F7-AB2F-468FB6D850DD}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Voodoo.Reports</RootNamespace>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
     <AssemblyName>Voodoo.Reports</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
+    <RootNamespace>Voodoo.Reports</RootNamespace>
+    <Version>0.9.4-rc</Version>
+    <PackageId>Voodoo.Reports</PackageId>
+    <Authors>Shawn Doucet</Authors>
+    <Company></Company>
+    <Product>Voodoo.Patterns</Product>
+    <Description>Programmatic report generation using Migra Doc and Closed XML.  Using the NetStandard builds from Didstopia/PDFSharp and Connatix/MigraDoc</Description>
+    <PackageTags>reports reporting excel pdf ssrs-is-the-devil</PackageTags>
+    <Copyright>2016</Copyright>
+    <PackageProjectUrl>https://github.com/MiniverCheevy/voodoo-reports/</PackageProjectUrl>
+    <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/MiniverCheevy/voodoo-reports/</RepositoryUrl>
+    <FileVersion>1.0.0.0</FileVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageReleaseNotes>https://github.com/Connatix/MigraDoc
+https://github.com/Didstopia/PDFSharp
+http://www.pdfsharp.net/
+</PackageReleaseNotes>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>bin\Debug</OutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClosedXML, Version=0.90.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
-      <HintPath>..\packages\ClosedXML.0.90.0\lib\net452\ClosedXML.dll</HintPath>
-    </Reference>
-    <Reference Include="CsvHelper, Version=6.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
-      <HintPath>..\packages\CsvHelper.6.1.0\lib\net45\CsvHelper.dll</HintPath>
-    </Reference>
-    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
-      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
-    </Reference>
-    <Reference Include="FastMember.Signed, Version=1.0.0.9, Culture=neutral, PublicKeyToken=9e8f22703bef9a29, processorArchitecture=MSIL">
-      <HintPath>..\packages\FastMember.Signed.1.1.0\lib\net40\FastMember.Signed.dll</HintPath>
-    </Reference>
-    <Reference Include="MigraDoc.DocumentObjectModel, Version=1.50.4740.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFsharp-MigraDoc.1.50.4740-beta5\lib\net20\MigraDoc.DocumentObjectModel.dll</HintPath>
-    </Reference>
-    <Reference Include="MigraDoc.Rendering, Version=1.50.4740.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFsharp-MigraDoc.1.50.4740-beta5\lib\net20\MigraDoc.Rendering.dll</HintPath>
-    </Reference>
-    <Reference Include="MigraDoc.RtfRendering, Version=1.50.4740.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFsharp-MigraDoc.1.50.4740-beta5\lib\net20\MigraDoc.RtfRendering.dll</HintPath>
-    </Reference>
-    <Reference Include="PdfSharp, Version=1.50.4740.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFsharp-MigraDoc.1.50.4740-beta5\lib\net20\PdfSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="PdfSharp.Charting, Version=1.50.4740.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFsharp-MigraDoc.1.50.4740-beta5\lib\net20\PdfSharp.Charting.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Voodoo, Version=2.2.27.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Voodoo.Patterns.2.2.28\lib\net452\Voodoo.dll</HintPath>
-    </Reference>
+    <PackageReference Include="ClosedXML" Version="0.93.1" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.8.1" />
+    <PackageReference Include="SixLabors.Fonts" Version="1.0.0-beta0007" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-beta0006" />
+    <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta0005" />
+    <PackageReference Include="System.ComponentModel.TypeConverter" Version="4.3.0" />
+    <PackageReference Include="Voodoo.Patterns" Version="3.0.0.5" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adapters\ClosedXml\CellAdapter.cs" />
-    <Compile Include="Adapters\ClosedXml\ColumnHelper.cs" />
-    <Compile Include="Adapters\ClosedXml\ReportAdapter.cs" />
-    <Compile Include="Adapters\ClosedXml\RowAdapter.cs" />
-    <Compile Include="Adapters\ClosedXml\Styles\AlignHandler.cs" />
-    <Compile Include="Adapters\ClosedXml\Styles\BackColorHandler.cs" />
-    <Compile Include="Adapters\ClosedXml\Styles\BoldHandler.cs" />
-    <Compile Include="Adapters\ClosedXml\Styles\BorderHandler.cs" />
-    <Compile Include="Adapters\ClosedXml\Styles\FontFamilyHandler.cs" />
-    <Compile Include="Adapters\ClosedXml\Styles\FontSizeHandler.cs" />
-    <Compile Include="Adapters\ClosedXml\Styles\ForeColorHandler.cs" />
-    <Compile Include="Adapters\ClosedXml\Styles\ItalicsHandler.cs" />
-    <Compile Include="Adapters\ClosedXml\Styles\StyleFactory.cs" />
-    <Compile Include="Adapters\ClosedXml\Styles\StyleHandler.cs" />
-    <Compile Include="Adapters\ClosedXml\Styles\UnderlineHandler.cs" />
-    <Compile Include="Adapters\ClosedXml\Styles\VerticalAlignHandler.cs" />
-    <Compile Include="Adapters\ClosedXml\TableAdapter.cs" />
-    <Compile Include="Adapters\IReportAdapter.cs" />
-    <Compile Include="Adapters\MigraDocs\CellAdapter.cs" />
-    <Compile Include="Adapters\MigraDocs\ReportAdapter.cs" />
-    <Compile Include="Adapters\MigraDocs\RowAdapter.cs" />
-    <Compile Include="Adapters\MigraDocs\Styles\AlignHandler.cs" />
-    <Compile Include="Adapters\MigraDocs\Styles\BackColorHandler.cs" />
-    <Compile Include="Adapters\MigraDocs\Styles\BoldHandler.cs" />
-    <Compile Include="Adapters\MigraDocs\Styles\BorderHandler.cs" />
-    <Compile Include="Adapters\MigraDocs\Styles\FontFamilyHandler.cs" />
-    <Compile Include="Adapters\MigraDocs\Styles\FontSizeHandler.cs" />
-    <Compile Include="Adapters\MigraDocs\Styles\ForeColorHandler.cs" />
-    <Compile Include="Adapters\MigraDocs\Styles\ItalicsHandler.cs" />
-    <Compile Include="Adapters\MigraDocs\Styles\StyleFactory.cs" />
-    <Compile Include="Adapters\MigraDocs\Styles\StyleHandler.cs" />
-    <Compile Include="Adapters\MigraDocs\Styles\UnderlineHandler.cs" />
-    <Compile Include="Adapters\MigraDocs\Styles\VerticalAlignHandler.cs" />
-    <Compile Include="Adapters\MigraDocs\TableAdapter.cs" />
-    <Compile Include="Models\Fragment.cs" />
-    <Compile Include="Models\Orientation.cs" />
-    <Compile Include="Models\Report.Margin.cs" />
-    <Compile Include="PdfCombiner.cs" />
-    <Compile Include="RenderingLogic\BorderBuilders\BottomBorderBuilder.cs" />
-    <Compile Include="RenderingLogic\BorderBuilders\LeftBorderBuilder.cs" />
-    <Compile Include="RenderingLogic\BorderBuilders\RightBorderBuilder.cs" />
-    <Compile Include="RenderingLogic\BorderBuilders\TopBorderBuilder.cs" />
-    <Compile Include="RenderingLogic\BorderFactory.cs" />
-    <Compile Include="Models\Cell.cs" />
-    <Compile Include="Models\CellPosition.cs" />
-    <Compile Include="RenderingLogic\BorderBuilders\InlineOutlineBorder.cs" />
-    <Compile Include="Models\Part.cs" />
-    <Compile Include="PartExtensions.cs" />
-    <Compile Include="Models\Report.cs" />
-    <Compile Include="Models\Row.cs" />
-    <Compile Include="RenderingLogic\CellPositionMapper.cs" />
-    <Compile Include="RenderingLogic\CellPositionCalculator.cs" />
-    <Compile Include="Models\Section.cs" />
-    <Compile Include="Models\Style.cs" />
-    <Compile Include="Models\Table.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RenderingLogic\CellPositionMap.cs" />
-    <Compile Include="RenderOptions.cs" />
-    <Compile Include="ReportFormat.cs" />
-    <None Include="packages.config" />
-    <None Include="Voodoo.Reports.nuspec">
-      <SubType>Designer</SubType>
-    </None>
+    <ProjectReference Include="..\deps\Connatix-MigraDoc\MigraDoc\src\MigraDoc.DocumentObjectModel.Standard\MigraDoc.DocumentObjectModel.Standard.csproj" />
+    <ProjectReference Include="..\deps\Connatix-MigraDoc\MigraDoc\src\MigraDoc.Rendering.Standard\MigraDoc.Rendering.Standard.csproj" />
+    <ProjectReference Include="..\deps\Didstopia-PDFSharp\Didstopia.PDFSharp\Didstopia.PDFSharp.csproj" />
   </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+ 
 </Project>

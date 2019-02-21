@@ -3,24 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Didstopia.PDFSharp.Fonts;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Voodoo.Reports.Tests.Rendering
 {
     [TestClass]
-    public class RowSpanTests : BaseTest
+    public class UnfilledCellsTest : BaseTest
     {
         [TestMethod]
         public void RenderReport_ValidData_IsOk()
         {
-            
             var data = base.GetData();
-            var report = new RowSpanReport();
+            var report = new UnfilledCellsReport();
             report.Build(data);
             base.WriteFile(report);
         }
 
-        public override string Name => "RowAndColumnSpanReport";
+        public override string Name => "UnfilledCellsReport";
     }
 }

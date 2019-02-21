@@ -71,6 +71,8 @@ namespace Voodoo.Reports.Models
 
         public Row Row => Parent as Row;
 
+        public int Index { get; internal set; }
+
         public Cell AddPageNumber()
         {
             this.AddFragment(new Fragment {IsPageNumber = true});

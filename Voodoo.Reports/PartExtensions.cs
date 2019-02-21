@@ -7,8 +7,6 @@ namespace Voodoo.Reports
     public static class PartExtensions
     {
 
-
-
         /// <summary>
         /// Only works at Cell Level or Higher
         /// </summary>
