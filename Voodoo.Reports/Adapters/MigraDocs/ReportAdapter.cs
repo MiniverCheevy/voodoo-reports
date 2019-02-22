@@ -19,10 +19,13 @@ namespace Voodoo.Reports.Adapters.MigraDocs
     {
         static ReportAdapter()
         {
+            if (ImageSource.ImageSourceImpl == null)
             ImageSource.ImageSourceImpl = new ImageSharpImageSource();
             
             //https://stackoverflow.com/questions/48679265/loading-a-font-with-pdfsharp-net-standard-preview-from-xamarin-forms-fails-no
-            GlobalFontSettings.FontResolver = new FontResolver();
+
+            if (GlobalFontSettings.FontResolver == null)
+                GlobalFontSettings.FontResolver = new FontResolver();
 
         }
         public ReportAdapter()
@@ -95,22 +98,6 @@ namespace Voodoo.Reports.Adapters.MigraDocs
             style.Font.Name = Report.DefaultFontFamily;
             style.Font.Size = Unit.FromPoint(Report.DefaultFontSize);
 
-            //style = Document.Styles[StyleNames.Header];
-            //style.ParagraphFormat.AddTabStop("16cm", TabAlignment.Right);
-
-            //style = Document.Styles[StyleNames.Footer];
-            //style.ParagraphFormat.AddTabStop("8cm", TabAlignment.Center);
-
-            // Create a new style called Table based on style Normal
-            //style = Document.Styles.AddStyle("Table", "Normal");
-            //style.Font.Name = Report.DefaultFontFamily;
-            //style.Font.Size = Report.DefaultFontSize;
-
-            //// Create a new style called Reference based on style Normal
-            //style = Document.Styles.AddStyle("Reference", "Normal");
-            //style.ParagraphFormat.SpaceBefore = "5mm";
-            //style.ParagraphFormat.SpaceAfter = "5mm";
-            //style.ParagraphFormat.TabStops.AddTabStop("16cm", TabAlignment.Right);
         }
 
         public Report Report { get; set; }
@@ -131,9 +118,27 @@ namespace Voodoo.Reports.Adapters.MigraDocs
 
         private void buildBody()
         {
-            foreach (var table in Report.Body.Children())
+            var first = Report.Children().FirstOrDefault();
+            if (first != null)
+                addTables(this.DefaultSection, first);
+
+            foreach(var section in Report.Children().Skip(1).ToArray())
             {
-                var migraDocTable = this.DefaultSection.AddTable();
+                var migraDocSection = this.Document.AddSection();
+                addTables(migraDocSection, section);
+            }
+        }
+
+        private void addTables(MigraDoc.DocumentObjectModel.Section migraDocSection, Models.Section section)
+        {
+            
+            migraDocSection.PageSetup.RightMargin = $"{this.Report.MarginInInches.Right}in";
+            migraDocSection.PageSetup.LeftMargin = $"{this.Report.MarginInInches.Left}in";
+            migraDocSection.PageSetup.TopMargin = $"{this.Report.MarginInInches.Top}in";
+            migraDocSection.PageSetup.BottomMargin = $"{this.Report.MarginInInches.Bottom}in";
+            foreach (var table in section.Children())
+            {
+                var migraDocTable = migraDocSection.AddTable();
                 var adapter = new TableAdapter(table, migraDocTable, Report);
             }
         }

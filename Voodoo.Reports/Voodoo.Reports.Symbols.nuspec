@@ -33,6 +33,10 @@ http://www.pdfsharp.net/</releaseNotes>
         <file src="bin\Release\Didstopia.PDFSharp.dll" target="lib\netStandard20\Didstopia.PDFSharp.dll" />
 	    <file src="bin\Release\MigraDoc.DocumentObjectModel.Standard.dll" target="lib\netStandard20\MigraDoc.DocumentObjectModel.Standard.dll" />
 	        <file src="bin\Release\MigraDoc.Rendering.Standard.dll" target="lib\netStandard20\MigraDoc.Rendering.Standard.dll" />
+  <file src="bin\Release\Voodoo.Reports.dll" target="lib\netStandard20\Voodoo.Reports.pdb" />
+        <file src="bin\Release\Didstopia.PDFSharp.pdb" target="lib\netStandard20\Didstopia.PDFSharp.pdb" />
+	    <file src="bin\Release\MigraDoc.DocumentObjectModel.Standard.pdb" target="lib\netStandard20\MigraDoc.DocumentObjectModel.Standard.pdb" />
+	        <file src="bin\Release\MigraDoc.Rendering.Standard.pdb" target="lib\netStandard20\MigraDoc.Rendering.Standard.pdb" />
 
   </files>
 </package>

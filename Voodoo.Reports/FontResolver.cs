@@ -89,10 +89,16 @@ namespace Voodoo.Reports
         public FontResolverInfo ResolveTypeface(string familyName, bool isBold, bool isItalic)
         {
             fonts.TryFind(familyName, out var resolvedFont);
-            resolvedFont.ThrowIfNull($"Cannot find font {familyName}");
-            var name = getName(familyName, isBold, isItalic);
-            return new FontResolverInfo(name);
+            resolvedFont.ThrowIfNull($"Cannot resolve font face {familyName}");
 
+            var name = getName(familyName, isBold, isItalic);
+            if (FontMap.ContainsKey(name))
+                return new FontResolverInfo(name);
+            else
+                name = getName(familyName, false, false);
+
+
+                return new FontResolverInfo(name);
         }
     }
 }

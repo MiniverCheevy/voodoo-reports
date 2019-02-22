@@ -16,7 +16,7 @@ namespace Voodoo.Reports.Models
         }
 
         private List<Table> tables = new List<Table>();
-        private int tableIndex = -1;
+        private int tableIndex = 0;
         public Table AddTable()
         {
             var table = new Table() {Parent = this, Index = tableIndex ++};

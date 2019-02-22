@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Didstopia.PDFSharp.Fonts;
 using Voodoo.Reports.Adapters;
-using Pdf = Voodoo.Reports.Adapters.MigraDocs;
 using Excel = Voodoo.Reports.Adapters.ClosedXml;
+using Pdf = Voodoo.Reports.Adapters.MigraDocs;
 
 namespace Voodoo.Reports.Models
 {
     public partial class Report : Part
     {
+        private List<Section> sections = new List<Section>();
+
+
         public string DefaultFontFamily { get; set; } = "Verdana";
         public double DefaultFontSize { get; set; } = 7;
         public Margin MarginInInches { get; set; } = new Margin();
@@ -24,22 +23,37 @@ namespace Voodoo.Reports.Models
         public Orientation Orientation { get; set; } = Orientation.Portrait;
 
         public bool ShowRuler { get; set; }
-        static Report()
+
+        public bool HasNoBody { get; }
+        public Section AddSection()
         {
-            
+            var section = new Section() { Parent = this};
+            this.sections.Add(section);
+            return section;            
         }
-        public Report()
+
+        public Section[] Children()
         {
+            return this.sections.ToArray();
+        }
+
+        public Report(bool withNoBody = false)
+        {
+            this.Header = new Section { Parent = this };
             
-            Header = new Section() {Parent = this};
-            Body = new Section {Parent = this};
-            Footer = new Section { Parent = this};
+            if (!withNoBody)
+            {
+                this.Body = new Section { Parent = this };                
+                this.sections.Add(this.Body);
+                this.HasNoBody = withNoBody;
+            }
+            this.Footer = new Section { Parent = this };            
         }
 
         public void AddDefaultFooter()
         {
             var footer = Footer.AddTable().Italics();
-            
+
             footer.NoBorder();
             footer.AddColumn(1.5);
             footer.AddColumn(4.5);
@@ -51,7 +65,7 @@ namespace Voodoo.Reports.Models
             row.AddCell().AddPageOfPagesString().Right();
         }
 
-        
+
         internal void AddRuler(Section section)
         {
             var ruler = section.AddTable();

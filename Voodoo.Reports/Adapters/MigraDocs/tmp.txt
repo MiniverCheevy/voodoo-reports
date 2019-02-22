@@ -1,0 +1,115 @@
+// Decompiled with JetBrains decompiler
+// Type: Voodoo.Reports.Adapters.MigraDocs.ReportAdapter
+// Assembly: Voodoo.Reports, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: 16223F6A-9FA4-4704-8FEF-5B1AC77EDBE0
+// Assembly location: C:\Users\Shawn Doucet\.nuget\packages\voodoo.reports\0.9.3-rc\lib\net452\Voodoo.Reports.dll
+
+using MigraDoc.DocumentObjectModel;
+using MigraDoc.DocumentObjectModel.Tables;
+using MigraDoc.Rendering;
+using System;
+using System.IO;
+using Voodoo.Reports.Models;
+
+namespace Voodoo.Reports.Adapters.MigraDocs
+{
+  public class ReportAdapter : IReportAdapter
+  {
+    public byte[] Render(Report report)
+    {
+      this.Document = new Document();
+      this.Report = report;
+      Style style = this.Document.get_Styles().get_Item("Normal");
+      Decimal? nullable = report.VerticalPaddingBefore;
+      Decimal num1 = nullable ?? new Decimal(1, 0, 0, false, (byte) 2);
+      nullable = report.VerticalPaddingAfter;
+      Decimal num2 = nullable ?? new Decimal(1, 0, 0, false, (byte) 2);
+      style.get_ParagraphFormat().set_SpaceBefore(Unit.op_Implicit(string.Format("{0}in", (object) num1)));
+      style.get_ParagraphFormat().set_SpaceAfter(Unit.op_Implicit(string.Format("{0}in", (object) num2)));
+      switch (this.Report.Orientation)
+      {
+        case Orientation.Portrait:
+          this.Document.get_DefaultPageSetup().set_Orientation((Orientation) 0);
+          break;
+        case Orientation.Landscape:
+          this.Document.get_DefaultPageSetup().set_Orientation((Orientation) 1);
+          break;
+        default:
+          throw new ArgumentOutOfRangeException();
+      }
+      this.Report.HandlePrerendingTasks();
+      this.buildBody();
+      this.applyDefaultStyles();
+      DocumentRenderer documentRenderer1 = new DocumentRenderer(this.Document);
+      PdfDocumentRenderer documentRenderer2 = new PdfDocumentRenderer();
+      documentRenderer2.set_DocumentRenderer(documentRenderer1);
+      documentRenderer2.set_Document(this.Document);
+      PdfDocumentRenderer documentRenderer3 = documentRenderer2;
+      documentRenderer3.RenderDocument();
+      using (MemoryStream memoryStream = new MemoryStream())
+      {
+        documentRenderer3.Save((Stream) memoryStream, false);
+        byte[] buffer = new byte[memoryStream.Length];
+        memoryStream.Seek(0L, SeekOrigin.Begin);
+        memoryStream.Flush();
+        memoryStream.Read(buffer, 0, (int) memoryStream.Length);
+        return buffer;
+      }
+    }
+
+    private void applyDefaultStyles()
+    {
+      Style style = this.Document.get_Styles().get_Item("Normal");
+      style.get_Font().set_Name(this.Report.DefaultFontFamily);
+      style.get_Font().set_Size(Unit.FromPoint(this.Report.DefaultFontSize));
+    }
+
+    public Report Report { get; set; }
+
+    private void buildBody()
+    {
+      foreach (Section child1 in this.Report.Children())
+      {
+        Section migraDocSection = this.Document.AddSection();
+        migraDocSection.get_PageSetup().set_RightMargin(Unit.op_Implicit(string.Format("{0}in", (object) this.Report.MarginInInches.Right)));
+        migraDocSection.get_PageSetup().set_LeftMargin(Unit.op_Implicit(string.Format("{0}in", (object) this.Report.MarginInInches.Left)));
+        migraDocSection.get_PageSetup().set_TopMargin(Unit.op_Implicit(string.Format("{0}in", (object) this.Report.MarginInInches.Top)));
+        migraDocSection.get_PageSetup().set_BottomMargin(Unit.op_Implicit(string.Format("{0}in", (object) this.Report.MarginInInches.Bottom)));
+        foreach (Table child2 in child1.Children())
+        {
+          TableAdapter tableAdapter = new TableAdapter(child2, migraDocSection.AddTable(), this.Report);
+        }
+        this.buildHeader(migraDocSection);
+        this.buildFooter(migraDocSection);
+      }
+    }
+
+    private void buildHeader(Section migraDocSection)
+    {
+      if (this.Report.ShowRuler)
+        this.Report.AddRuler(this.Report.Header);
+      HeaderFooter primary = migraDocSection.get_Headers().get_Primary();
+      foreach (Table child in this.Report.Header.Children())
+      {
+        Table table = primary.AddTable();
+        table.get_Borders().ClearAll();
+        Table migraDocTable = table;
+        Report report = this.Report;
+        TableAdapter tableAdapter = new TableAdapter(child, migraDocTable, report);
+      }
+    }
+
+    private void buildFooter(Section migraDocSection)
+    {
+      HeaderFooter primary = migraDocSection.get_Footers().get_Primary();
+      if (this.Report.ShowRuler)
+        this.Report.AddRuler(this.Report.Footer);
+      foreach (Table child in this.Report.Footer.Children())
+      {
+        TableAdapter tableAdapter = new TableAdapter(child, primary.AddTable(), this.Report);
+      }
+    }
+
+    public Document Document { get; set; }
+  }
+}
