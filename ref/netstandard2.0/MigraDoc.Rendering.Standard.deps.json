@@ -9,9 +9,9 @@
     ".NETStandard,Version=v2.0/": {
       "MigraDoc.Rendering.Standard/1.0.0": {
         "dependencies": {
-          "Didstopia.PDFSharp": "0.0.1",
-          "MigraDoc.DocumentObjectModel.Standard": "1.0.0",
-          "NETStandard.Library": "2.0.3"
+          "NETStandard.Library": "2.0.3",
+          "Didstopia.PDFSharp": "0.0.1.0",
+          "MigraDoc.DocumentObjectModel.Standard": "1.0.0.0"
         },
         "runtime": {
           "MigraDoc.Rendering.Standard.dll": {}
@@ -277,17 +277,20 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "Didstopia.PDFSharp/0.0.1": {
-        "dependencies": {
-          "System.Security.Cryptography.Algorithms": "4.3.1"
-        },
+      "Didstopia.PDFSharp/0.0.1.0": {
         "runtime": {
-          "Didstopia.PDFSharp.dll": {}
+          "Didstopia.PDFSharp.dll": {
+            "assemblyVersion": "0.0.1.0",
+            "fileVersion": "0.0.1.0"
+          }
         }
       },
-      "MigraDoc.DocumentObjectModel.Standard/1.0.0": {
+      "MigraDoc.DocumentObjectModel.Standard/1.0.0.0": {
         "runtime": {
-          "MigraDoc.DocumentObjectModel.Standard.dll": {}
+          "MigraDoc.DocumentObjectModel.Standard.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
@@ -557,13 +560,13 @@
       "path": "system.threading.tasks/4.3.0",
       "hashPath": "system.threading.tasks.4.3.0.nupkg.sha512"
     },
-    "Didstopia.PDFSharp/0.0.1": {
-      "type": "project",
+    "Didstopia.PDFSharp/0.0.1.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "MigraDoc.DocumentObjectModel.Standard/1.0.0": {
-      "type": "project",
+    "MigraDoc.DocumentObjectModel.Standard/1.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

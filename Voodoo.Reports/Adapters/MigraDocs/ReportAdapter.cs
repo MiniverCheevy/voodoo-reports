@@ -43,7 +43,7 @@ namespace Voodoo.Reports.Adapters.MigraDocs
             var style = Document.Styles["Normal"];
             var paddingBefore = report.VerticalPaddingBefore ?? .01m;
             var paddingAfter = report.VerticalPaddingAfter ?? .01m;
-                style.ParagraphFormat.SpaceBefore = $"{paddingBefore}in";
+            style.ParagraphFormat.SpaceBefore = $"{paddingBefore}in";
             style.ParagraphFormat.SpaceAfter = $"{paddingAfter}in";
 
 
@@ -63,6 +63,8 @@ namespace Voodoo.Reports.Adapters.MigraDocs
             buildBody();
             buildFooter();
             applyDefaultStyles();
+           
+
             var renderer = new DocumentRenderer(Document);
             var pdfRenderer = new PdfDocumentRenderer
             {

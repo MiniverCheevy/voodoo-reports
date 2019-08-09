@@ -196,12 +196,14 @@
     <Compile Include="BaseTest.cs" />
     <Compile Include="BordersAndShadingReport.cs" />
     <Compile Include="EmptyTableReport.cs" />
+    <Compile Include="LandscapeReport.cs" />
     <Compile Include="Models\CascadingStyleTests.cs" />
     <Compile Include="Images\Images.cs" />
     <Compile Include="RenderingLogic\BorderFactoryTests.cs" />
     <Compile Include="RenderingLogic\CellPositionCalculatorTests.cs" />
     <Compile Include="Rendering\BorderAndShadingTests.cs" />
     <Compile Include="Rendering\EmptyTableTests.cs" />
+    <Compile Include="Rendering\LandscapeReportTest.cs" />
     <Compile Include="Rendering\PdfCombinerTests.cs" />
     <Compile Include="Rendering\ReportWithTooManyCellsTest.cs" />
     <Compile Include="Rendering\RowSpanTests.cs" />
