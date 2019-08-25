@@ -10,7 +10,7 @@
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
     <AssemblyName>Voodoo.Reports</AssemblyName>
     <RootNamespace>Voodoo.Reports</RootNamespace>
-    <Version>0.9.5-rc</Version>
+    <Version>9.83-rc</Version>
     <PackageId>Voodoo.Reports</PackageId>
     <Authors>Shawn Doucet</Authors>
     <Company></Company>

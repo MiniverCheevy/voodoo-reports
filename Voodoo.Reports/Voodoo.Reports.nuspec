@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>Voodoo.Reports</id>
-    <version>0.9.82-rc</version>
+    <version>0.9.83-rc</version>
     <authors>Shawn Doucet</authors>
     <owners>Shawn Doucet</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -30,6 +30,7 @@ http://www.pdfsharp.net/</releaseNotes>
   </metadata>
     <files>
     <file src="bin\Release\Voodoo.Reports.dll" target="lib\netStandard20\Voodoo.Reports.dll" />
+        <file src="bin\Release\Voodoo.Reports.xml" target="lib\netStandard20\Voodoo.Reports.xml" />
         <file src="bin\Release\Didstopia.PDFSharp.dll" target="lib\netStandard20\Didstopia.PDFSharp.dll" />
 	    <file src="bin\Release\MigraDoc.DocumentObjectModel.Standard.dll" target="lib\netStandard20\MigraDoc.DocumentObjectModel.Standard.dll" />
 	        <file src="bin\Release\MigraDoc.Rendering.Standard.dll" target="lib\netStandard20\MigraDoc.Rendering.Standard.dll" />
