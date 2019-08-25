@@ -184,8 +184,8 @@
       <HintPath>..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Voodoo, Version=3.0.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Voodoo.Patterns.3.0.0.5\lib\netstandard2.0\Voodoo.dll</HintPath>
+    <Reference Include="Voodoo, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Voodoo.Patterns.3.1.0\lib\netstandard2.0\Voodoo.dll</HintPath>
     </Reference>
     <Reference Include="Voodoo.TestData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Voodoo.TestData.1.0.19\lib\net40\Voodoo.TestData.dll</HintPath>
@@ -196,6 +196,9 @@
     <Compile Include="BaseTest.cs" />
     <Compile Include="BordersAndShadingReport.cs" />
     <Compile Include="EmptyTableReport.cs" />
+    <Compile Include="FormatStringsReport.cs" />
+    <Compile Include="FormatStringTestClass.cs" />
+    <Compile Include="Formatting\DefaultFormatStringTests.cs" />
     <Compile Include="LandscapeReport.cs" />
     <Compile Include="Models\CascadingStyleTests.cs" />
     <Compile Include="Images\Images.cs" />
@@ -203,6 +206,7 @@
     <Compile Include="RenderingLogic\CellPositionCalculatorTests.cs" />
     <Compile Include="Rendering\BorderAndShadingTests.cs" />
     <Compile Include="Rendering\EmptyTableTests.cs" />
+    <Compile Include="Rendering\FormatStringTests.cs" />
     <Compile Include="Rendering\LandscapeReportTest.cs" />
     <Compile Include="Rendering\PdfCombinerTests.cs" />
     <Compile Include="Rendering\ReportWithTooManyCellsTest.cs" />

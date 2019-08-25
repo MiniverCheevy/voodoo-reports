@@ -75,7 +75,20 @@ namespace Voodoo.Reports.Adapters.ClosedXml
         private void addFragment(Fragment fragment)
         {
             fragment.StartIndex = excelCell.Value.To<string>().Length;
-            excelCell.Value = $"{excelCell.Value}{fragment.Text}";
+
+            if (fragment.Value == null)
+                excelCell.Value = $"{excelCell.Value}{fragment.Text}";
+            else
+            {
+                excelCell.Value = fragment.Value;
+                if (!string.IsNullOrWhiteSpace(fragment.FormatString))
+                {
+                    if (fragment.Value.Is<DateTime>())
+                        excelCell.Style.DateFormat.Format = fragment.FormatString;
+                    else
+                        excelCell.Style.NumberFormat.Format = fragment.FormatString;
+                }
+            }
 
             //if (fragment.IsNumberOfPages)
             //    paragraph.AddNumPagesField();

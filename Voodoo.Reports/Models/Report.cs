@@ -10,7 +10,7 @@ namespace Voodoo.Reports.Models
     {
         private List<Section> sections = new List<Section>();
 
-
+        public DefaultCellFormatOptions FormatOptions { get; private set; } = new DefaultCellFormatOptions();
         public string DefaultFontFamily { get; set; } = "Verdana";
         public double DefaultFontSize { get; set; } = 7;
         public Margin MarginInInches { get; set; } = new Margin();

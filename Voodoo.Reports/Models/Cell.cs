@@ -31,7 +31,10 @@ namespace Voodoo.Reports.Models
         {
             return AddFragment(new Fragment {Text = text});
         }
-
+        public Fragment AddFragment(object value, string formatString)
+        {
+            return AddFragment(new Fragment { Value = value, FormatString = formatString });
+        }
         public Fragment AddFragment(Fragment fragment)
         {
             fragment.Parent = this;
@@ -72,6 +75,8 @@ namespace Voodoo.Reports.Models
         public Row Row => Parent as Row;
 
         public int Index { get; internal set; }
+        public object Value { get; set; }
+        public string FormatString { get; set; }
 
         public Cell AddPageNumber()
         {

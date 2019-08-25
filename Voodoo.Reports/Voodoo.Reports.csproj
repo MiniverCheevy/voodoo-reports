@@ -10,7 +10,7 @@
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
     <AssemblyName>Voodoo.Reports</AssemblyName>
     <RootNamespace>Voodoo.Reports</RootNamespace>
-    <Version>0.9.4-rc</Version>
+    <Version>0.9.5-rc</Version>
     <PackageId>Voodoo.Reports</PackageId>
     <Authors>Shawn Doucet</Authors>
     <Company></Company>
@@ -37,6 +37,8 @@ http://www.pdfsharp.net/
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>bin\Release\Voodoo.Reports.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.93.1" />
@@ -45,7 +47,7 @@ http://www.pdfsharp.net/
     <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-beta0006" />
     <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta0005" />
     <PackageReference Include="System.ComponentModel.TypeConverter" Version="4.3.0" />
-    <PackageReference Include="Voodoo.Patterns" Version="3.0.0.5" />
+    <PackageReference Include="Voodoo.Patterns" Version="3.1.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

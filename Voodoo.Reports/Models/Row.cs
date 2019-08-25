@@ -6,6 +6,10 @@ namespace Voodoo.Reports.Models
 {
     public class Row : Part, ITabularObject
     {
+        
+
+
+        private DefaultCellFormatOptions formatOptions => Table.Report.FormatOptions;
         private int cellIndex = 0;
         public Table Table => Parent as Table;
 
@@ -28,7 +32,11 @@ namespace Voodoo.Reports.Models
 
         public Cell AddCell()
         {
-            var cell = new Cell() {Parent = this, Index = cellIndex ++};
+            var cell = new Cell
+            {
+                Parent = this,
+                Index = cellIndex++
+            };
             cells.Add(cell);
             return cell;
         }
@@ -45,6 +53,42 @@ namespace Voodoo.Reports.Models
             return cell;
         }
 
+        public Cell AddIntCell(int content)
+        {
+           return AddCell(content, formatOptions.IntFormatOptions);
+        }
+        public Cell AddDecimalCell(decimal content)
+        {
+            return AddCell(content, formatOptions.DecimalFormatOptions);
+        }
+        public Cell AddCurrencyCell(decimal content)
+        {
+            return AddCell(content, formatOptions.CurrencyFormatOptions);
+        }
+        public Cell AddPercentCell(decimal content)
+        {
+            return AddCell(content, formatOptions.PercentFormatOptions);
+        }
+        public Cell AddDateCell(DateTime content)
+        {
+            return AddCell(content, formatOptions.DateFormatOptions);
+        }
+        public Cell AddTimeCell(DateTime content)
+        {
+            return AddCell(content, formatOptions.TimeFormatOptions);
+        }
+        public Cell AddDateTimeCell(DateTime content)
+        {
+            return AddCell(content, formatOptions.DateTimeFormatOptions);
+        }
+        public Cell AddCell(object content, CellFormatOptions options)
+        {
+            var cell = new Cell() { Parent = this, Index = cellIndex++ };
+            cell.Styles.Add(new Align { Alignment = options.Alignment });
+            cell.AddFragment(content, options.FormatString);
+            cells.Add(cell);
+            return cell;
+        }
         public Cell[] GetAllCells()
         {
             return this.cells.ToArray();

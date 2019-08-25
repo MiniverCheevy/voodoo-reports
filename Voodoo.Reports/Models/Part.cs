@@ -116,9 +116,4 @@ namespace Voodoo.Reports.Models
 
         public object NativeObject { get; set; }
     }
-
-    public interface ITabularObject
-    {
-        Cell[] GetAllCells();
-    }
 }
